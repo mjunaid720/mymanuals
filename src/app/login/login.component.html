@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="text" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password" [(ngModel)]="user.password">
+                  <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password" [(ngModel)]="user.password">
                   <div class="invalid-feedback" *ngIf="error == 'password'" [className]="error == 'password' ? 'show' : 'hide'">Enter your password too!</div>
                 </div>
                 <div>
@@ -37,8 +37,21 @@
                     <span class="custom-control-indicator"></span>
                     <!--<span class="custom-control-description small text-dark">Remember me on this computer</span>-->
                   </label>
-                  <div style="color: red" *ngIf="error == 'all'" [className]="error == 'all' ? 'show' : 'hide'">please enter username and password</div>
+
                 </div>
+                <div class="form-group">
+                    <label for="urole">You are :</label>
+                    <select class="form-control" id="urole" [(ngModel)]="user.role">
+                        <option value="Company">Company</option>
+                        <option value="Representative">Representative</option>
+                        <option value="Consumer">Consumer</option>
+                    </select>
+                    <br>
+                    <div style="color: red" *ngIf="error == 'role'" [className]="error == 'role' ? 'show' : 'hide'">please select type</div>
+                </div>
+                <div style="color: red" *ngIf="error == 'all'" [className]="error == 'all' ? 'show' : 'hide'">please select all fields</div>
+                <br />
+
                 <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)='clickme()'>Login</button>
             </div>
             <!--/card-block-->

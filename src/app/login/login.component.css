@@ -1,7 +1,9 @@
 .show{
     display: block !important;
+    color: red !important;
 }
 
 .hide{
     display: none !important;
+    color: red !important;
 }

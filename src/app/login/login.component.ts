@@ -18,16 +18,19 @@ export class LoginComponent implements OnInit {
     error = '';
     user: object = {
         username : '',
-        password : ''
+        password : '',
+        role : ''
     };
     clickme() {
         console.log(this.user);
-        if (this.user.username.replace(/\s/g, '') == '' && this.user.password.replace(/\s/g, '') == "") {
+        if (this.user.username.replace(/\s/g, '') == '' && this.user.password.replace(/\s/g, '') == "" && this.user.role.replace(/\s/g, '') == '') {
             this.error = 'all';
         } else if (this.user.username.replace(/\s/g, '') == '') {
             this.error = 'username';
         } else if(this.user.password.replace(/\s/g, '') == '') {
             this.error = 'password';
+        } else if(this.user.role.replace(/\s/g, '') == '') {
+            this.error = 'role';
         } else {
             this.error = '';
             //var obs = this.http.get('https://jsonplaceholder.typicode.com/todos/1');
