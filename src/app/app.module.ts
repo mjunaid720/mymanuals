@@ -2,19 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes} from '@angular/router';
-import { LoginService } from './login.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
-    {
-        path: 'login',
-        loadChildren: './login/login.module#LoginModule'
-    },
-    {
-        path: 'orders',
-        loadChildren: './orders/orders.module#OrdersModule'
-    },
     {
         path: '',
         redirectTo: '',
@@ -42,7 +33,6 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
