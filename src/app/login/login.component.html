@@ -21,26 +21,25 @@
               <h3 class="mb-0">Login</h3>
             </div>
             <div class="card-body">
-              <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                 <div class="form-group">
                   <label for="uname1">Username</label>
                   <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" [(ngModel)]="user.username">
-                  <div class="invalid-feedback">Oops, you missed the UserName.</div>
+                  <div class="invalid-feedback" *ngIf="error == 'username'" [className]="error == 'username' ? 'show' : 'hide'">Oops, you missed the UserName.</div>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password" [(ngModel)]="user.password">
-                  <div class="invalid-feedback">Enter your password too!</div>
+                  <input type="text" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password" [(ngModel)]="user.password">
+                  <div class="invalid-feedback" *ngIf="error == 'password'" [className]="error == 'password' ? 'show' : 'hide'">Enter your password too!</div>
                 </div>
                 <div>
                   <label class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description small text-dark">Remember me on this computer</span>
+                    <!--<span class="custom-control-description small text-dark">Remember me on this computer</span>-->
                   </label>
+                  <div style="color: red" *ngIf="error == 'all'" [className]="error == 'all' ? 'show' : 'hide'">please enter username and password</div>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)='clickme()'>Login</button>
-              </form>
             </div>
             <!--/card-block-->
           </div>
