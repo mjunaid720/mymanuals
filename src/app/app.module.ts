@@ -5,6 +5,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { LoginService } from './login.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
     {
@@ -12,12 +13,17 @@ const routes: Routes = [
         loadChildren: './login/login.module#LoginModule'
     },
     {
-        path: 'orders',
-        loadChildren: './orders/orders.module#OrdersModule'
+        path: 'signup',
+        loadChildren: './signup/signup.module#SignupModule'
+    },
+    {
+        path: 'company',
+        loadChildren: './company/company.module#CompanyModule',
+        canActivate: [AuthGuard]
     },
     {
         path: '',
-        redirectTo: '',
+        redirectTo: 'login',
         pathMatch: 'full'
     }
 ];
