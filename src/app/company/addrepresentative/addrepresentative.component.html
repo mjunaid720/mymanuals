@@ -1,0 +1,69 @@
+
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+
+
+  <h2 class="header-title  margin-top-5">Add Representative</h2>
+
+    <div class="form-group">
+      <label >User Name:</label>
+      <input type="text" class="form-control" id="rusername" [(ngModel)]="rep.username">
+    </div>
+
+    <div class="form-group">
+      <label for="rpassword">Password:</label>
+      <input type="text" class="form-control" id="rpassword" [(ngModel)]="rep.password">
+    </div>
+
+
+    <div class="form-group">
+      <label for="represtativeName">Representative Name:</label>
+      <input type="text" class="form-control" id="represtativeName" [(ngModel)]="rep.name">
+    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="description">Description :</label>-->
+      <!--<input type="text" class="form-control" id="description" [(ngModel)]="rep.description">-->
+    <!--</div>-->
+
+    <button type="submit" class="btn btn-primary" (click)="addRepresentative()">Add Representative</button>
+<br />
+  <br />
+  <h2>Representative List</h2>
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>
+        Unique_Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        User Name
+      </th>
+      <th>
+        Password
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of repos">
+      <td>
+        {{item.id}}
+      </td>
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.username}}
+      </td>
+      <td>
+        {{item.password}}
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<app-footer></app-footer>
