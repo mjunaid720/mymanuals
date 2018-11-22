@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         role : ''
     };
     clickme() {
+
         if (this.user.username.replace(/\s/g, '') === '' && this.user.password.replace(/\s/g, '') === "" && this.user.role.replace(/\s/g, '') === '') {
             this.error = 'all';
         } else if (this.user.username.replace(/\s/g, '') === '') {
@@ -34,7 +35,13 @@ export class LoginComponent implements OnInit {
         } else {
             this.error = '';
             //var obs = this.http.get('https://jsonplaceholder.typicode.com/todos/1');
-            let obs = this.http.put("http://localhost:8080/api/company/login", this.user);
+            let url = '';
+            if(this.user.role == 'Company'){
+                url = "http://localhost:8080/api/company/login";
+            }else if(this.user.role == 'Consumer'){
+                url = "http://localhost:8080/api/consumer/login";
+            }
+            let obs = this.http.put(url, this.user);
             obs.subscribe((x:{token:''}) => {
                 if(x.hasOwnProperty('token')) {
                     this.error = '';
@@ -44,7 +51,7 @@ export class LoginComponent implements OnInit {
                     } else if (this.user.role == 'Representative'){
                         this.router.navigate(['/representative']);
                     } else if (this.user.role == 'Consumer'){
-                        this.router.navigate(['/user']);
+                        this.router.navigate(['/rep']);
                     }
 
                 } else {

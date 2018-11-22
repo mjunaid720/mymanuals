@@ -6,6 +6,7 @@ import { LoginService } from './login.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import {RepresentativeModule} from './representative/representative.module';
 
 const routes: Routes = [
     {
@@ -20,6 +21,10 @@ const routes: Routes = [
         path: 'company',
         loadChildren: './company/company.module#CompanyModule',
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'rep',
+        loadChildren: './representative/representative.module#RepresentativeModule'
     },
     {
         path: '',
