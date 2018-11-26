@@ -1,0 +1,7 @@
+task:- 1
+
+Design a page/form that supports creating a new product and adding 0..n materials
+
+task:-2
+
+Prepare design for various logins and prepare separate links on homepage
