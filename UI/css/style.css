@@ -65,4 +65,9 @@ h2.header-title {
   color: #fff;
   background: none;
 }
+
+.img-small {
+  width: 100px;
+  height: 100px;
+}
 /*# sourceMappingURL=style.css.map */
