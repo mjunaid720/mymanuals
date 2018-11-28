@@ -6,7 +6,7 @@ import { Router, CanActivate } from '@angular/router';
   providedIn: 'root'
 })
 
-export class AuthGuardService implements CanActivate{
+export class AuthGuardService implements CanActivate {
 
   constructor(public router: Router) { }
 
