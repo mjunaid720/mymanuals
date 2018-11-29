@@ -1,0 +1,79 @@
+
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+
+
+  <h2 class="header-title  margin-top-5">Add Product</h2>
+
+  <div class="form-group">
+    <label>Product Name:</label>
+    <input type="text" class="form-control" id="product_name" placeholder="ex:Lenovo laptop" [(ngModel)]="product.name">
+  </div>
+
+  <div class="form-group">
+    <label>Product Model:</label>
+    <input type="text" class="form-control" id="product_model" placeholder="ex:T470S" [(ngModel)]="product.model">
+  </div>
+
+  <div class="form-group">
+    <label>select category :</label>
+    <select class="form-control" id="select_categroy" [(ngModel)]="product.category">
+      <option *ngFor="let p of categories" value="{{p.id}}">{{p.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Add Images(*.jpg) for this product</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.images" (change)="imageOnChange($event)">
+  </div>
+
+  <div class="form-group">
+    <label>Add Manuals(*.pdf) for this product</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile2" [(ngModel)]="product.pdfs" (change)="pdfOnChange($event)">
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+  <br />
+  <br />
+  <h2>Product List in Selected Category</h2>
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>
+        Unique_Id
+      </th>
+      <th>
+        Product Name
+      </th>
+      <th>
+        Modal
+      </th>
+      <th>
+        Image
+      </th>
+      <th>
+        Pdf
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of productList">
+      <td>
+        {{item.id}}
+      </td>
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.modal}}
+      </td>
+      <td>
+        {{item.images[0].name}}
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<app-footer></app-footer>

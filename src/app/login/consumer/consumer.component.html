@@ -1,0 +1,32 @@
+<h3 (click)="movetosignup()" style="cursor: pointer;text-decoration: underline">Signup</h3>
+<br />
+<br />
+<div class="card rounded-0">
+  <div class="card-header">
+    <h3 class="mb-0">Login as a Consumer</h3>
+  </div>
+  <div class="card-body">
+<div class="form-group">
+  <label for="consumername">Username</label>
+  <input type="text" class="form-control form-control-lg rounded-0" name="consumername" id="consumername"  [(ngModel)]="user.username">
+  <div class="invalid-feedback" *ngIf="error == 'username'" [className]="error == 'username' ? 'show' : 'hide'">Oops, you missed the UserName.</div>
+</div>
+<div class="form-group">
+  <label>Password</label>
+  <input type="password" class="form-control form-control-lg rounded-0" id="consumerpassword" name="consumerpassword"  autocomplete="new-password" [(ngModel)]="user.password">
+  <div class="invalid-feedback" *ngIf="error == 'password'" [className]="error == 'password' ? 'show' : 'hide'">Enter your password too!</div>
+</div>
+<div>
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input">
+    <span class="custom-control-indicator"></span>
+    <!--<span class="custom-control-description small text-dark">Remember me on this computer</span>-->
+  </label>
+
+</div>
+<div style="color: red" *ngIf="error == 'all'" [className]="error == 'all' ? 'show' : 'hide'">please select all fields</div>
+<div style="color: red" *ngIf="error == 'notfound'" [className]="error == 'notfound' ? 'show' : 'hide'">User not found</div>
+<br />
+<button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)='clickMe()'>Login</button>
+  </div>
+</div>

@@ -24,7 +24,7 @@ const routes: Routes = [
     },
     {
         path: 'rep',
-        loadChildren: './representative/representative.module#RepresentativeModule'
+        loadChildren: './respresentative/respresentative.module#RespresentativeModule'
     },
     {
         path: '',
