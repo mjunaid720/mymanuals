@@ -36,10 +36,6 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    movetosignup(){
-        this.router.navigate(['/signup']);
-    }
-
     ngOnInit() {
         this.displayPage = 3;
     }

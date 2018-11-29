@@ -28,12 +28,12 @@ export class ConsumerComponent implements OnInit {
         }  else {
             this.error = '';
 
-            const obs = this.loginService.loginAsCompany(this.user);
+            const obs = this.loginService.loginAsConsumer(this.user);
             obs.subscribe((x: {token: ''}) => {
                 if (x.hasOwnProperty('token')) {
                     this.error = '';
                     localStorage.setItem('data', JSON.stringify({'token' : x.token, 'username' : this.user.username, 'role' : 'consumer'}));
-                    this.router.navigate(['/list']);
+                    this.router.navigate(['/home']);
                 } else {
                     this.error = 'notfound';
                 }
@@ -42,6 +42,10 @@ export class ConsumerComponent implements OnInit {
             });
         }
     }
+
+  movetosignup(){
+    this.router.navigate(['/signup']);
+  }
 
   ngOnInit() {
   }

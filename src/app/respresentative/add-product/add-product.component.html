@@ -1,7 +1,13 @@
 
 <app-header></app-header>
 <div class="container" style="max-width: 62% !important;">
+  <div class="alert alert-success" role="alert" *ngIf="error == 1">
+    the product has added succesfuly .
+  </div>
 
+  <div class="alert alert-danger" role="alert" *ngIf="error == 2">
+    the product has failed to add.
+  </div>
 
   <h2 class="header-title  margin-top-5">Add Product</h2>
 
@@ -17,7 +23,7 @@
 
   <div class="form-group">
     <label>select category :</label>
-    <select class="form-control" id="select_categroy" [(ngModel)]="product.category">
+    <select class="form-control" id="select_categroy" [(ngModel)]="category">
       <option *ngFor="let p of categories" value="{{p.id}}">{{p.name}}</option>
     </select>
   </div>
@@ -34,7 +40,9 @@
 
   <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
   <br />
+  <hr />
   <br />
+
   <h2>Product List in Selected Category</h2>
   <table class="table table-hover table-bordered table-striped">
     <thead>
@@ -65,10 +73,13 @@
         {{item.name}}
       </td>
       <td>
-        {{item.modal}}
+        {{item.model}}
       </td>
-      <td>
-        {{item.images[0].name}}
+      <td *ngIf="item.images.length > 0">
+        <img src="{{item.images[0]?.data}}" style="max-height: 100px; max-width: 100px;" />
+      </td>
+      <td *ngIf="item.manuals.length > 0">
+        <a style="cursor: pointer" (click)="setUrl(item.manuals[0].data)" style="max-height: 100px; max-width: 100px;" > download </a>
       </td>
     </tr>
 

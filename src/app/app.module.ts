@@ -26,6 +26,10 @@ const routes: Routes = [
         path: 'rep',
         loadChildren: './respresentative/respresentative.module#RespresentativeModule'
     },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
+  },
     {
         path: '',
         redirectTo: 'login',
