@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  username: any = '';
   constructor(private router: Router) {
     let data = localStorage.getItem('data');
     let prsData = JSON.parse(data);

@@ -35,9 +35,29 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  setUrl(url) {
-    const Url1 = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
-    window.open(Url1.changingThisBreaksApplicationSecurity, '_blank');
+  dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, {type:mime});
+  }
+
+  setPdfUrl(data) {
+    return new Image(data).src;
+  }
+
+  setUrl(data) {
+    // let arr = data.split(data);
+    var pdf = atob(data.split(',')[1]);
+    //const Url1 = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    //window.open(Url1.changingThisBreaksApplicationSecurity, '_blank');
+    //this.dataURLtoFile(data.data, data.name);
+    var image = new Image()
+    image.src = data
+    console.log(image);
+    window.open(image.src);
   }
 
   addProduct() {

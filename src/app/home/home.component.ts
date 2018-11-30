@@ -27,13 +27,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  setUrl(url) {
-    const Url = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
-    window.open(Url.changingThisBreaksApplicationSecurity, "_blank");
+  setUrl(data) {
+    // let arr = data.split(data);
+    var pdf = atob(data.split(',')[1]);
+    //const Url1 = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+    //window.open(Url1.changingThisBreaksApplicationSecurity, '_blank');
+    //this.dataURLtoFile(data.data, data.name);
+    var image = new Image()
+    image.src = data
+    console.log(image);
+    window.open(image.src);
   }
 
 
-  loadProdudts(){
+  loadProdudts(event){
 
     this.productUrl = 'http://localhost:8080/api/product?categoryId=' + this.category;
     let obs = this.http.get(this.productUrl);

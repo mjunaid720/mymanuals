@@ -51,11 +51,12 @@
       <td>{{pro.name}}</td>
       <td>{{pro.model}}</td>
       <td>
-        <span *ngIf="pro.images.length > 0"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.images[0].data}}" data-holder-rendered="true"></span>
+        <span *ngIf="pro.images.length > 0"><img (click)="setUrl(pro.images[0]?.data)" class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.images[0].data}}" data-holder-rendered="true"></span>
       </td>
       <td>
-        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer" (click)="setUrl(pro.manuals[0].data)" target="_blank">download<img src="{{pdf}}" /></a></span></td>
+        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer" (click)="setUrl(pro.manuals[0].data)" target="_blank">download</a></span></td>
     </tr>
     </tbody>
   </table>
+
 </div>
