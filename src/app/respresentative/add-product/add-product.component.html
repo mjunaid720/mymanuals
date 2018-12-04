@@ -33,12 +33,24 @@
     <input type="file" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.images" (change)="imageOnChange($event)">
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="border: 2px #ccc solid; padding: 5px;">
     <label>Add Manuals(*.pdf) for this product</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile2" [(ngModel)]="product.pdfs" (change)="pdfOnChange($event)">
+    <div *ngFor="let item of pdfArray; let i = index">
+      <div class="form-group" style="min-height: 60px;border: 1px solid #ccc; padding: 4px;">
+        <input type="file" style="margin-bottom: 5px" class="form-control-file" name="werrwrwe" id="exampleForm" [(ngModel)]="item.pdfFile" (change)="pdfOnChange($event, i)">
+        <input type="text" style="margin-left: 0px;" placeholder="description" class="form-check-input" id="exampleControlField" name="edffewfwe" [(ngModel)]="item.description" />
+        <button style="margin-left: 20% !important;height: 32px;margin-top: 4px;line-height: 1;" (click)="decNum(i)" class="btn btn-default">remove</button>
+      </div>
+    </div>
+    <br />
+    <button (click)="increaseNum()" class="btn btn-default">Add more</button>
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+  </div>
+
   <br />
   <hr />
   <br />

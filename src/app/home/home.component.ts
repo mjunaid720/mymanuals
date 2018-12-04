@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
     //const Url1 = this.domSanitizer.bypassSecurityTrustResourceUrl(url);
     //window.open(Url1.changingThisBreaksApplicationSecurity, '_blank');
     //this.dataURLtoFile(data.data, data.name);
-    var image = new Image()
-    image.src = data
+    var image = new Image();
+    image.src = data;
     console.log(image);
     window.open(image.src);
   }

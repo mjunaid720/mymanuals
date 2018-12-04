@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AddProductComponent implements OnInit {
 
+  pdfArray = [];
   category: '';
   product: any = {
     name : '',
@@ -33,6 +34,21 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  increaseNum() {
+    const pdf = {
+      'pdfFile' : '',
+      'data' : '',
+      'description' : ''
+    };
+    this.pdfArray.push(pdf);
+  }
+
+  decNum(i) {
+    if (i > -1) {
+      this.pdfArray.splice(i, 1);
+    }
   }
 
   dataURLtoFile(dataurl, filename) {
@@ -125,14 +141,24 @@ export class AddProductComponent implements OnInit {
     myReader.readAsDataURL(file);
   }
 
-  readThisPdf(inputValue: any): void {
-    let scope = this;
-    var file: File = inputValue.files[0];
-    var myReader: FileReader = new FileReader();
+  setPdfByteCode(byteCode, index) {
+    // let result = this.pdfArray.filter(obj => {
+    //   return obj.b === index;
+    // });
+    // if (result.length > 0) {
+    this.pdfArray[index].data = byteCode;
+      // console.log(result);
+      // this.pdfArray = result;
+   // }
+  }
+
+  readThisPdf(inputValue: any, i): void {
+    const scope = this;
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
-      scope.fileToUpload[1] = myReader.result;
-      // onsole.log(scope.imageToUpload);
+      scope.setPdfByteCode(myReader.result, i);
     }
     myReader.readAsDataURL(file);
   }
@@ -143,9 +169,9 @@ export class AddProductComponent implements OnInit {
     this.readThis(event.target);
   }
 
-  pdfOnChange(event) {
+  pdfOnChange(event, i) {
     this.fileToUpload[0] = event.target.files[0];
-    this.readThisPdf(event.target);
+    this.readThisPdf(event.target, i);
   }
 
   getProducts(categoryId) {
