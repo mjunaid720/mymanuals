@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import {RepresentativeModule} from './representative/representative.module';
+import { ReusableComponent } from './reusable/reusable.component';
 
 const routes: Routes = [
     {
@@ -45,7 +46,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReusableComponent
   ],
   imports: [
     BrowserModule,
