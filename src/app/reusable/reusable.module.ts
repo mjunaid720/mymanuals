@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ReusableRoutingModule,
     FormsModule
-  ]
+  ],
+  exports: [
+    SearchComponent
+]
 })
 export class ReusableModule { }
