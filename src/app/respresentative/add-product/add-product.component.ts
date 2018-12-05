@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import {fakeAsync} from '@angular/core/testing';
 
 
 @Component({
@@ -78,65 +79,63 @@ export class AddProductComponent implements OnInit {
 
   addProduct() {
 
+    console.log('now');
+    // const images =  [{
+    //     "name": this.imageToUpload[0].name,
+    //     "type": this.imageToUpload[0].type,
+    //     "data": this.imageToUpload[1]
+    // }];
 
-    const images =  [{
-        "name": this.imageToUpload[0].name,
-        "type": this.imageToUpload[0].type,
-        "data": this.imageToUpload[1]
-    }];
+    // let cat = {
+    //   "id": this.category,
+    //   "name": "phones"
+    // };
 
-    let cat = {
-      "id": this.category,
-      "name": "phones"
-    };
+    // const manuals =  [{
+    //   "name": this.fileToUpload[0].name,
+    //   "type": this.fileToUpload[0].type,
+    //   "data": this.fileToUpload[1]
+    // }];
 
-    const manuals =  [{
-      "name": this.fileToUpload[0].name,
-      "type": this.fileToUpload[0].type,
-      "data": this.fileToUpload[1]
-    }];
+    this.product['images'] = this.imageToUpload;
 
-    this.product['images'] = images
-
-    this.product['manuals'] = manuals;
-
-
+    this.product['manuals'] = this.pdfArray;
 
     const scope = this;
     const header = new HttpHeaders();
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    this.selCategory = this.category;
-    delete this.product.category;
-    this.product['category'] = cat;
-    if (this.product.category == '') {
+   // this.selCategory = this.category;
+    this.product['categoryId'] = this.category;
+    if (this.product.category === '') {
+      console.log('please select one category');
       this.error = 'please select one category';
     } else {
-      header.append('Authorization', prsData.token);
-      console.log(this.product);
+      console.log(this.category);
       // headers = headers.set('Authorization', prsData.token);
       const obs = this.http.post('http://localhost:8080/api/product', this.product,{
         headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
       });
       obs.subscribe((x) => {
-        console.log('completed');
-        this.error = 1;
+
+
+
+        // console.log('completed');
+        // this.error = 1;
         // this.product['category'] = this.selCategory;
-        scope.getProducts(scope.category);
+         scope.getProducts(scope.category);
         // this.setToEmpty();
       });
     }
-
   }
 
   readThis(inputValue: any): void {
     let scope = this;
-    var file: File = inputValue.files[0];
+    var file: File = inputValue;
     var myReader: FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
-      scope.imageToUpload[1] = myReader.result;
-      // onsole.log(scope.imageToUpload);
+      scope.imageToUpload.push({'data': myReader.result});
     }
     myReader.readAsDataURL(file);
   }
@@ -165,8 +164,14 @@ export class AddProductComponent implements OnInit {
 
   imageOnChange(event) {
     // console.log(this.imageToUpload)
-    this.imageToUpload[0] = event.target.files[0];
-    this.readThis(event.target);
+    const scope = this;
+    Array.from(event.target.files).forEach(function (child) {
+      scope.readThis(child);
+    });
+    // this.imageToUpload[0] = event.target.files.forEach(file => {
+    //   this.readThis(file);
+    // });
+
   }
 
   pdfOnChange(event, i) {
@@ -177,7 +182,7 @@ export class AddProductComponent implements OnInit {
   getProducts(categoryId) {
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    const obs = this.http.get('http://localhost:8080/api/product?categoryId=' + categoryId);
+    const obs = this.http.get('http://localhost:8080/api/product/category/' + categoryId);
     obs.subscribe((x) => {
       this.productList = x;
       console.log(this.productList);

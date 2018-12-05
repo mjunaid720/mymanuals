@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import {RepresentativeModule} from './representative/representative.module';
+import { ReusableModule } from './reusable/reusable.module';
+import { LoginModule } from './login/login.module';
 
 const routes: Routes = [
     {
@@ -30,6 +32,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },
+    {
+        path: 'result',
+        loadChildren: './reusable/reusable.module#ReusableModule'
+    },
     {
         path: '',
         redirectTo: 'login',
@@ -55,7 +61,9 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReusableModule,
+    LoginModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -8,13 +8,15 @@ import { ConsumerComponent } from './consumer/consumer.component';
 import { RepresentativeComponent } from './representative/representative.component';
 import { CompanyComponent } from './company/company.component';
 
+import { ReusableModule } from '../reusable/reusable.module';
 @NgModule({
   declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReusableModule
   ]
 })
 export class LoginModule { }

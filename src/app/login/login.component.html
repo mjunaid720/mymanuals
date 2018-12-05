@@ -35,22 +35,26 @@
   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
 
 <div class="container">
-    <!--<div class="row">-->
-        <!--<a style="text-decoration: underline; cursor: pointer" (click)="loginAs('consumer')">login</a>&nbsp;&nbsp;<a style="text-decoration: underline; cursor: pointer" (click)="loginAs('company')">admin</a>&nbsp;&nbsp;<a style="text-decoration: underline; cursor: pointer" (click)="loginAs('representative')">rep</a>-->
-    <!--</div>-->
   <div class="row">
     <div class="col-md-12">
       <h2 class="text-center text-white mb-4"></h2>
       <div class="row">
         <div class="col-md-6 mx-auto">
+            <h3 (click)="movetosignup()" style="cursor: pointer;text-decoration: underline">Signup</h3>
+            <br />
+            <br />
           <!-- form card login -->
             <app-company *ngIf="displayPage == 1"></app-company>
             <app-representative *ngIf="displayPage == 2"></app-representative>
             <app-consumer *ngIf="displayPage == 3"></app-consumer>
           <!-- /form card login -->
+
         </div>
+
+
       </div>
       <!--/row-->
+
     </div>
     <!--/col-->
   </div>

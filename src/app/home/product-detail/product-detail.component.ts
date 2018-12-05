@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,9 +12,14 @@ export class ProductDetailComponent implements OnInit {
   constructor(private http: HttpClient, router: ActivatedRoute) {
     let id = router.snapshot.paramMap.get("id");
     this.getProductDetail(id);
+    this.checkRepPermission();
+    this.checkConsumerPermission();
   }
 
   proDetail: any = [];
+  imageToShow = 0;
+  repPer: boolean = false;
+  likedBtn: boolean = false;
 
   ngOnInit() {
   }
@@ -32,7 +37,7 @@ export class ProductDetailComponent implements OnInit {
         },
         {
           "id": 2,
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lenovo_G500s_laptop-2905.jpg"
         },
         {
           "id": 3,
@@ -40,7 +45,7 @@ export class ProductDetailComponent implements OnInit {
         },
         {
           "id": 4,
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lenovo_G500s_laptop-2905.jpg"
         }
       ],
       "manuals": [
@@ -51,12 +56,12 @@ export class ProductDetailComponent implements OnInit {
         },
         {
           "id": 2,
-          "description": "manual description 1",
+          "description": "manual description 2",
           "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
         },
         {
-          "id": 2,
-          "description": "manual description 1",
+          "id": 3,
+          "description": "manual description 3",
           "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
         }
       ],
@@ -65,12 +70,59 @@ export class ProductDetailComponent implements OnInit {
           "name": "tv"
       }
     };
-    this.proDetail = data;
+    // this.proDetail = data;
+    let obs =  this.http.get('http://localhost:8080/api/product/'+id, {
+      headers: new HttpHeaders().set('Authorization', '')
+    });
+    obs.subscribe((x) => {
+      this.proDetail = x;
+    });
+  }
+
+  changeImage(index) {
+    this.imageToShow = index;
+  }
+
+  checkRepPermission() {
+
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    console.log(prsData);
+    if(prsData.hasOwnProperty('role')){
+      if(prsData.role == 'rep') {
+        this.repPer = true;
+      }
+    }
+  }
+
+  removeManual(mId) {
+    // check if user is with role representative
+    console.log(mId);
     // let obs =  this.http.get('http://localhost:8080/api/product/'+id);
     // obs.subscribe((x) => {
     //   console.log(x);
     //   this.proDetail = x;
     // });
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    console.log(prsData);
+    if(prsData.hasOwnProperty('role')){
+      if(prsData.role == 'rep') {
+        console.log('you have permission to delete');
+      }
+    }
+  }
+
+
+
+  checkConsumerPermission() {
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    if(prsData.hasOwnProperty('role')){
+      if(prsData.role == 'consumer') {
+        this.likedBtn = true;
+      }
+    }
   }
 
 }
