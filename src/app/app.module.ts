@@ -30,11 +30,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },
-    {
-        path: '',
-        redirectTo: 'login',
-        pathMatch: 'full'
-    }
+  {
+    path: '',
+    loadChildren: './landing/landing.module#LandingModule'
+  }
 ];
 // const routes: Routes = [
 //     {
