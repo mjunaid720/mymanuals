@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,18 +9,15 @@ import { HttpClient } from '@angular/common/http';
 export class SearchComponent implements OnInit {
  url:string='';
  search:string='';
-  constructor(private http:HttpClient) {
+
+  constructor(private router: Router) {
 
    }
-  searchProduct(event:any){
-console.log(event.target.value);
-this.search = event.target.value;
-this.url = "http://localhost:8080/api/product?search="+this.search;
-let obs = this.http.get(this.url);
-obs.subscribe((x)=>{
-  console.log(x);
-})
-  }
+
+searchProduct(){
+this.router.navigate(['/result/search/'+this.search]);
+}
+
   ngOnInit() {
   }
 

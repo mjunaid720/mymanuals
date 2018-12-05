@@ -5,12 +5,15 @@ import { ReusableRoutingModule } from './reusable-routing.module';
 import { ReusableComponent } from './reusable.component';
 import { ButtonComponent } from './button/button.component';
 import { SearchComponent } from './search/search.component';
+import { SearchresultComponent } from './searchresult/searchresult.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ReusableComponent, ButtonComponent, SearchComponent],
+  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent],
   imports: [
     CommonModule,
-    ReusableRoutingModule
+    ReusableRoutingModule,
+    FormsModule
   ]
 })
 export class ReusableModule { }
