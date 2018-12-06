@@ -38,8 +38,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'login',
-        pathMatch: 'full'
+        loadChildren: './landing/landing.module#LandingModule'
     }
 ];
 // const routes: Routes = [
