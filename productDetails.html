@@ -1,0 +1,178 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MyManuals</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a href="/login" class="nav-link" style="text-decoration: underline; cursor: pointer">login </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <ol class="breadcrumb" style="margin-bottom: 0px; background: #fff">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Product</a></li>
+    <li class="breadcrumb-item active">Details</li>
+  </ol>
+  <div class="card" style="margin-top: 0px;">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+
+          <div class="preview-pic tab-content" style="max-width: 497px; max-height: 310px; min-height: 310px;">
+            <div [ngClass]="(imageToShow==0+i )?'tab-pane active':'tab-pane'" id="pic-{{i}}" *ngFor="let m of proDetail.images; let i = index"><img src="./assets/{{m.url.split('\\').pop(-1)}}" /></div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li [ngClass]="{'active': imageToShow==0+i}" *ngFor="let m of proDetail.images; let i = index"><a data-target="#pic-{{i}}" data-toggle="tab" (click)="changeImage(i)"><img style="min-height: 67px; min-width: 88px; max-height: 67px; max-width: 88px;" src="./assets/{{m.url.split('\\').pop(-1)}}" /></a></li>
+          </ul>
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title">{{proDetail.name}} </h3>
+          <p>Model: {{proDetail.model}}</p>
+          <!--<div class="rating">-->
+            <!--<div class="stars">-->
+              <!--<span class="fa fa-star checked"></span>-->
+              <!--<span class="fa fa-star checked"></span>-->
+              <!--<span class="fa fa-star checked"></span>-->
+              <!--<span class="fa fa-star"></span>-->
+              <!--<span class="fa fa-star"></span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<span class="review-no">41 reviews</span>&ndash;&gt;-->
+          <!--</div>-->
+          <p class="product-description">{{proDetail.description}}</p>
+          <!--<h4 class="price">current price: <span>$180</span></h4>-->
+          <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
+          <!--<h5 class="sizes">sizes:-->
+            <!--<span class="size" data-toggle="tooltip" title="small">s</span>-->
+            <!--<span class="size" data-toggle="tooltip" title="medium">m</span>-->
+            <!--<span class="size" data-toggle="tooltip" title="large">l</span>-->
+            <!--<span class="size" data-toggle="tooltip" title="xtra large">xl</span>-->
+          <!--</h5>-->
+          <!--<h5 class="colors">colors:-->
+            <!--<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>-->
+            <!--<span class="color green"></span>-->
+            <!--<span class="color blue"></span>-->
+          <!--</h5>-->
+          <div class="action" *ngIf="likedBtn">
+            <button class="like btn btn-default" type="button">Interested</button>
+          </div>
+
+
+        </div>
+        <br />
+        <br />
+
+      </div>
+      <h1 style="clear: both; margin-top: 20px;text-decoration: underline">Manuals</h1>
+      <table class="table table-striped custab">
+        <thead>
+        <tr>
+          <th>Manual link</th>
+          <th>Description</th>
+          <th class="text-center" *ngIf="repPer">Action</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let m of proDetail.manuals">
+          <td><a href="./assets/{{m.url.split('\\').pop(-1)}}" download>link</a></td>
+          <th>{{m.description}}</th>
+          <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Footer Content</h5>
+        <p>Here you can use rows and columns here to organize your footer content.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
