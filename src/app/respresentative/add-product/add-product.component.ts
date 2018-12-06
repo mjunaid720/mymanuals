@@ -3,6 +3,7 @@ import {HttpHeaders} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import {fakeAsync} from '@angular/core/testing';
+import {empty} from 'rxjs/internal/Observer';
 
 
 @Component({
@@ -24,14 +25,12 @@ export class AddProductComponent implements OnInit {
   productList: any;
   categories: any;
   selCategory: any = '';
-  error: any = '';
+  error: any = 0;
   imageToUpload: any = [];
   fileToUpload: any = [];
 
-
   constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
     this.getListOfCategories();
-
   }
 
   ngOnInit() {
@@ -64,7 +63,13 @@ export class AddProductComponent implements OnInit {
   setPdfUrl(data) {
     return new Image(data).src;
   }
-
+  isEmpty(obj) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  }
   setUrl(data) {
     // let arr = data.split(data);
     var pdf = atob(data.split(',')[1]);
@@ -97,34 +102,37 @@ export class AddProductComponent implements OnInit {
     //   "data": this.fileToUpload[1]
     // }];
 
-    this.product['images'] = this.imageToUpload;
+    let reqPrord = [];
+    reqPrord = this.product;
 
-    this.product['manuals'] = this.pdfArray;
+    reqPrord['images'] = this.imageToUpload;
+
+    reqPrord['manuals'] = this.pdfArray;
 
     const scope = this;
-    const header = new HttpHeaders();
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
    // this.selCategory = this.category;
-    this.product['categoryId'] = this.category;
-    if (this.product.category === '') {
-      console.log('please select one category');
-      this.error = 'please select one category';
+    reqPrord['categoryId'] = this.category;
+    delete reqPrord['pdfs'];
+    if (reqPrord['categoryId'] == '') {
+      this.error = 2;
+    } else if (this.isEmpty((reqPrord['images']))) {
+      this.error = 2;
+    } else if (reqPrord['name'] == '' || reqPrord['model'] == '') {
+      this.error = 2;
     } else {
-      console.log(this.category);
-      // headers = headers.set('Authorization', prsData.token);
-      const obs = this.http.post('http://localhost:8080/api/product', this.product,{
+      const obs = this.http.post('http://localhost:8080/api/product', reqPrord,{
         headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
       });
       obs.subscribe((x) => {
-
-
-
-        // console.log('completed');
-        // this.error = 1;
-        // this.product['category'] = this.selCategory;
+        this.error = 1;
+        console.log('record saved');
+         this.selCategory = this.product['category'];
          scope.getProducts(scope.category);
-        // this.setToEmpty();
+         this.setToEmpty();
+      }, error1 => {
+        console.log(error1);
       });
     }
   }
@@ -190,10 +198,14 @@ export class AddProductComponent implements OnInit {
   }
 
   setToEmpty() {
-    this.product = {
-      name: '',
-      model: ''
-    };
+    this.product['name'] = '';
+    this.product['model'] = '';
+    this.product['images'] = [];
+    this.product['manuals'] = [];
+
+    this.imageToUpload = [];
+
+    this.pdfArray = [];
   }
 
   getListOfCategories() {

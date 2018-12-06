@@ -31,10 +31,10 @@
         <div class="preview col-md-6">
 
           <div class="preview-pic tab-content" style="max-width: 497px; max-height: 310px; min-height: 310px;">
-            <div [ngClass]="(imageToShow==0+i )?'tab-pane active':'tab-pane'" id="pic-{{i}}" *ngFor="let m of proDetail.images; let i = index"><img src="./assets/{{m.url.split('\\').pop(-1)}}" /></div>
+            <div [ngClass]="(imageToShow==0+i )?'tab-pane active':'tab-pane'" id="pic-{{i}}" *ngFor="let m of proDetail.images; let i = index"><img src="./assets/{{m.url.split('\\').pop(-1)}}" (click)="open(i)"/></div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
-            <li [ngClass]="{'active': imageToShow==0+i}" *ngFor="let m of proDetail.images; let i = index"><a data-target="#pic-{{i}}" data-toggle="tab" (click)="changeImage(i)"><img style="min-height: 67px; min-width: 88px; max-height: 67px; max-width: 88px;" src="./assets/{{m.url.split('\\').pop(-1)}}" /></a></li>
+            <li style="text-align: center;" [ngClass]="{'active': imageToShow==0+i}" *ngFor="let m of proDetail.images; let i = index"><a data-target="#pic-{{i}}" data-toggle="tab" (click)="changeImage(i)"><img style="min-height: 67px; min-width: 88px; max-height: 67px; max-width: 88px;" src="./assets/{{m.url.split('\\').pop(-1)}}" /><span *ngIf="repPer" class="btn btn-danger btn-sm" (click)="deleteImage(m.id)"> Delete</span></a></li>
           </ul>
         </div>
         <div class="details col-md-6">
@@ -64,10 +64,9 @@
             <!--<span class="color green"></span>-->
             <!--<span class="color blue"></span>-->
           <!--</h5>-->
-          <div class="action" *ngIf="likedBtn">
-            <button class="like btn btn-default" type="button">Interested</button>
-          </div>
+        <app-button *ngIf="proDetail.id && likedBtn" [status]="likeBtnStatus" [productId]="proDetail.id">
 
+        </app-button>
 
         </div>
         <br />
@@ -107,8 +106,8 @@
       <div class="col-md-6 mt-md-0 mt-3">
 
         <!-- Content -->
-        <h5 class="text-uppercase">Footer Content</h5>
-        <p>Here you can use rows and columns here to organize your footer content.</p>
+        <h5 class="text-uppercase white">mymanual</h5>
+        <p class="white">here you can download any version of manual according to the product.</p>
 
       </div>
       <!-- Grid column -->
@@ -119,22 +118,7 @@
       <div class="col-md-3 mb-md-0 mb-3">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
 
       </div>
       <!-- Grid column -->
@@ -143,22 +127,22 @@
       <div class="col-md-3 mb-md-0 mb-3">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <!--<h5 class="text-uppercase">Links</h5>-->
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+        <!--<ul class="list-unstyled">-->
+          <!--<li>-->
+            <!--<a href="#!">Link 1</a>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<a href="#!">Link 2</a>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<a href="#!">Link 3</a>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<a href="#!">Link 4</a>-->
+          <!--</li>-->
+        <!--</ul>-->
 
       </div>
       <!-- Grid column -->
@@ -170,8 +154,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center py-3 white">© 2018 Copyright: mymanual
   </div>
   <!-- Copyright -->
 

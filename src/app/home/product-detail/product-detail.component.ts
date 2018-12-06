@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor(private http: HttpClient, router: ActivatedRoute) {
+  constructor(private http: HttpClient, private router: ActivatedRoute, private _lightbox: Lightbox) {
     let id = router.snapshot.paramMap.get("id");
     this.getProductDetail(id);
     this.checkRepPermission();
@@ -20,62 +21,52 @@ export class ProductDetailComponent implements OnInit {
   imageToShow = 0;
   repPer: boolean = false;
   likedBtn: boolean = false;
+  likeBtnStatus = false;
+  private _album = [];
 
   ngOnInit() {
   }
 
+  setUrl(src, caption1, thumb) {
+    const caption = 'image';
+    let url = src.split('\\').pop(-1);
+    url = './assets/' + url;
+    this._album.push({
+      src: url,
+      caption: caption,
+      thumb: thumb
+  })
+    return this._album;
+  }
+
+  open(index: number): void {
+    console.log(index);
+    // open lightbox
+    const data = this.setUrl(this.proDetail.images[index].url, 'image', '');
+    this._lightbox.open(data, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
+
   getProductDetail(id) {
-    let data =  {
-      "id": 1,
-      "name": "Dell - Inspiron 2-in-1 13.3",
-      "model": "UE55F8000AFXZ",
-      "description": "Dell - Inspiron 2-in-1 13.3\" Touch-Screen Laptop - Intel Core i5 - 8GB Memory - 256GB Solid State Drive - Era Gray",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
-        },
-        {
-          "id": 2,
-          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lenovo_G500s_laptop-2905.jpg"
-        },
-        {
-          "id": 3,
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
-        },
-        {
-          "id": 4,
-          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lenovo_G500s_laptop-2905.jpg"
-        }
-      ],
-      "manuals": [
-        {
-          "id": 1,
-          "description": "manual description 1",
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
-        },
-        {
-          "id": 2,
-          "description": "manual description 2",
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
-        },
-        {
-          "id": 3,
-          "description": "manual description 3",
-          "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6083/6083539_sd.jpg;maxHeight=400;maxWidth=500"
-        }
-      ],
-      "category": {
-        "id": 1,
-          "name": "tv"
-      }
-    };
+    let token = '';
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    if(prsData.hasOwnProperty('token')){
+      token = prsData.token;
+    }
     // this.proDetail = data;
     let obs =  this.http.get('http://localhost:8080/api/product/'+id, {
-      headers: new HttpHeaders().set('Authorization', '')
+      headers: new HttpHeaders().set('Authorization', token)
     });
     obs.subscribe((x) => {
       this.proDetail = x;
+      if(this.proDetail.hasOwnProperty('hasBadge')){
+        this.likeBtnStatus = this.proDetail.hasBadge;
+      }
     });
   }
 
@@ -95,22 +86,43 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  removeManual(mId) {
-    // check if user is with role representative
-    console.log(mId);
-    // let obs =  this.http.get('http://localhost:8080/api/product/'+id);
-    // obs.subscribe((x) => {
-    //   console.log(x);
-    //   this.proDetail = x;
-    // });
-    const data = localStorage.getItem('data');
-    const prsData = JSON.parse(data);
-    console.log(prsData);
-    if(prsData.hasOwnProperty('role')){
-      if(prsData.role == 'rep') {
-        console.log('you have permission to delete');
+  deleteImage(iId) {
+    var aa = confirm("Are you sure to delete!");
+    if (aa) {
+      const data = localStorage.getItem('data');
+      const prsData = JSON.parse(data);
+      console.log(prsData);
+      if(prsData.hasOwnProperty('role')){
+        if(prsData.role == 'rep') {
+          let obs =  this.http.delete('http://localhost:8080/api/product/image/' +iId, {
+            headers: new HttpHeaders().set('Authorization', prsData.token)
+          });
+          obs.subscribe((x) => {
+            this.proDetail = x;
+          });
+        }
       }
     }
+  }
+
+  removeManual(mId) {
+ var aa = confirm("Are you sure !");
+ if (aa) {
+   const data = localStorage.getItem('data');
+   const prsData = JSON.parse(data);
+   console.log(prsData);
+   if(prsData.hasOwnProperty('role')){
+     if(prsData.role == 'rep') {
+       let obs =  this.http.delete('http://localhost:8080/api/product/manual/' +mId, {
+         headers: new HttpHeaders().set('Authorization', prsData.token)
+       });
+       obs.subscribe((x) => {
+         this.proDetail = x;
+       });
+     }
+   }
+ }
+
   }
 
 

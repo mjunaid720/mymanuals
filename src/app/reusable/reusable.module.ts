@@ -16,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   exports: [
-    SearchComponent
+    SearchComponent,
+    ButtonComponent
 ]
 })
 export class ReusableModule { }
