@@ -51,13 +51,25 @@ export class ProductDetailComponent implements OnInit {
     this._lightbox.close();
   }
 
+  isEmpty(obj) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  }
+
   getProductDetail(id) {
     let token = '';
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    if(prsData.hasOwnProperty('token')){
+
+    if (!this.isEmpty(prsData)) {
       token = prsData.token;
     }
+    // if(prsData.hasOwnProperty('token')){
+    //   token = prsData.token;
+    // }
     // this.proDetail = data;
     let obs =  this.http.get('http://localhost:8080/api/product/'+id, {
       headers: new HttpHeaders().set('Authorization', token)
@@ -79,7 +91,7 @@ export class ProductDetailComponent implements OnInit {
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
     console.log(prsData);
-    if(prsData.hasOwnProperty('role')){
+    if (!this.isEmpty(prsData)) {
       if(prsData.role == 'rep') {
         this.repPer = true;
       }
@@ -92,7 +104,7 @@ export class ProductDetailComponent implements OnInit {
       const data = localStorage.getItem('data');
       const prsData = JSON.parse(data);
       console.log(prsData);
-      if(prsData.hasOwnProperty('role')){
+      if (!this.isEmpty(prsData)) {
         if(prsData.role == 'rep') {
           let obs =  this.http.delete('http://localhost:8080/api/product/image/' +iId, {
             headers: new HttpHeaders().set('Authorization', prsData.token)
@@ -111,7 +123,7 @@ export class ProductDetailComponent implements OnInit {
    const data = localStorage.getItem('data');
    const prsData = JSON.parse(data);
    console.log(prsData);
-   if(prsData.hasOwnProperty('role')){
+   if (!this.isEmpty(prsData)) {
      if(prsData.role == 'rep') {
        let obs =  this.http.delete('http://localhost:8080/api/product/manual/' +mId, {
          headers: new HttpHeaders().set('Authorization', prsData.token)
@@ -130,7 +142,7 @@ export class ProductDetailComponent implements OnInit {
   checkConsumerPermission() {
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    if(prsData.hasOwnProperty('role')){
+    if (!this.isEmpty(prsData)) {
       if(prsData.role == 'consumer') {
         this.likedBtn = true;
       }
