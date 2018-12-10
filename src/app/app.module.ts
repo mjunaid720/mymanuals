@@ -8,9 +8,13 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuardService as AuthGuard} from './auth-guard.service';
 import {RepresentativeModule} from './representative/representative.module';
 import {ReusableModule} from './reusable/reusable.module';
-import {LoginModule} from './login/login.module';
+import {LandingModule} from "./landing/landing.module";
 
 const routes: Routes = [
+  {
+    path: 'landing',
+    loadChildren: './landing/landing.module#LandingModule'
+  },
   {
     path: 'login',
     loadChildren: './login/login.module#LoginModule'
@@ -39,7 +43,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: './landing/landing.module#LandingModule'
+    redirectTo: 'landing',
+    pathMatch: 'full'
   }
 ];
 // const routes: Routes = [
@@ -63,7 +68,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReusableModule,
-    LoginModule
+    LandingModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
