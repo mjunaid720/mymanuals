@@ -1,0 +1,5 @@
+<button (click)="toggle()" [ngClass]="(isIntrested==false)?'like btn btn-default green':'like btn btn-default'">
+  <span *ngIf="isIntrested==false">Intrested</span>
+  <span *ngIf="isIntrested==true">Not Intrested</span>
+<!-- <img src="./assets/Im-Interested-Button.png" style="height:30px;width:30;"/> -->
+</button>

@@ -1,45 +1,58 @@
 
 <app-header></app-header>
 <div class="container" style="max-width: 62% !important;">
-  <div class="alert alert-success" role="alert" *ngIf="error == 1">
-    the product has added succesfuly .
-  </div>
 
-  <div class="alert alert-danger" role="alert" *ngIf="error == 2">
-    the product has failed to add.
-  </div>
 
   <h2 class="header-title  margin-top-5">Add Product</h2>
 
   <div class="form-group">
-    <label>Product Name:</label>
+    <label>Product Name:</label>*
     <input type="text" class="form-control" id="product_name" placeholder="ex:Lenovo laptop" [(ngModel)]="product.name">
   </div>
 
   <div class="form-group">
-    <label>Product Model:</label>
+    <label>Product Model:</label>*
     <input type="text" class="form-control" id="product_model" placeholder="ex:T470S" [(ngModel)]="product.model">
   </div>
 
   <div class="form-group">
-    <label>select category :</label>
+    <label>select category :</label>*
     <select class="form-control" id="select_categroy" [(ngModel)]="category">
       <option *ngFor="let p of categories" value="{{p.id}}">{{p.name}}</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label>Add Images(*.jpg) for this product</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.images" (change)="imageOnChange($event)">
+    <label>Add Images(*.jpg) for this product</label>*
+    <input type="file" multiple="multiple" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.images" (change)="imageOnChange($event)">
   </div>
+
+  <div class="form-group" style="border: 2px #ccc solid; padding: 5px;">
+    <label>Add Manuals(*.pdf) for this product</label>(optional)
+    <div *ngFor="let item of pdfArray; let i = index">
+      <div class="form-group" style="min-height: 60px;border: 1px solid #ccc; padding: 4px;">
+        <input type="file" style="margin-bottom: 5px" class="form-control-file" name="werrwrwe" id="exampleForm" [(ngModel)]="item.pdfFile" (change)="pdfOnChange($event, i)">
+        <input type="text" style="margin-left: 0px;" placeholder="description" class="form-check-input" id="exampleControlField" name="edffewfwe" [(ngModel)]="item.description" />
+        <button style="margin-left: 20% !important;height: 32px;margin-top: 4px;line-height: 1;" (click)="decNum(i)" class="btn btn-default">remove</button>
+      </div>
+    </div>
+    <br />
+    <button (click)="increaseNum()" class="btn btn-default">Add more</button>
+  </div>
+
 
   <div class="form-group">
-    <label>Add Manuals(*.pdf) for this product</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile2" [(ngModel)]="product.pdfs" (change)="pdfOnChange($event)">
+    <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
   <br />
+  <div class="alert alert-success" role="alert" *ngIf="error == 1">
+    Product added successfully.
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="error == 2">
+    Please fill add required fields.
+  </div>
   <hr />
   <br />
 
@@ -76,10 +89,10 @@
         {{item.model}}
       </td>
       <td *ngIf="item.images.length > 0">
-        <img src="{{item.images[0]?.data}}" style="max-height: 100px; max-width: 100px;" (click)="setUrl(item.images[0].data)"/>
+        <img src="./assets/{{item.images[0].url.split('\\').pop(-1)}}" style="max-height: 100px; max-width: 100px;"/>
       </td>
       <td *ngIf="item.manuals.length > 0">
-        <a style="cursor: pointer" (click)="setUrl(item.manuals[0].data)" style="max-height: 100px; max-width: 100px;" > Download </a>
+        <a style="cursor: pointer" href="./assets/{{item.manuals[0].url.split('\\').pop(-1)}}" download style="max-height: 100px; max-width: 100px;" > Download </a>
       </td>
     </tr>
 
