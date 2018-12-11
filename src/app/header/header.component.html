@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MyManuals</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item active" >
+          <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">product listing</a>
+        </li>
+          <li class="nav-item active" (click)="loginAs('consumer')">
+              <a class="nav-link" style="text-decoration: underline; cursor: pointer">login </a>
+          </li>
+          <li class="nav-item active" (click)="loginAs('representative')">
+              <a class="nav-link" style="text-decoration: underline; cursor: pointer">rep </a>
+          </li>
+          <li class="nav-item active" (click)="loginAs('company')">
+              <a class="nav-link" style="text-decoration: underline; cursor: pointer">admin </a>
+          </li>
+      </ul>
+  </div>
+</nav>
