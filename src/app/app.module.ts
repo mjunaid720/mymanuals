@@ -26,8 +26,12 @@ const routes: Routes = [
     },
     {
         path: 'rep',
-        loadChildren: './representative/representative.module#RepresentativeModule'
+        loadChildren: './respresentative/respresentative.module#RespresentativeModule'
     },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
+  },
     {
         path: 'result',
         loadChildren: './reusable/reusable.module#ReusableModule'

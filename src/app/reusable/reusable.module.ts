@@ -17,7 +17,8 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule
   ],
   exports: [
-    SearchComponent
+    SearchComponent,
+    ButtonComponent
 ]
 })
 export class ReusableModule { }
