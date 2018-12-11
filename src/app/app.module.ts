@@ -38,8 +38,13 @@ const routes: Routes = [
     },
     {
         path: '',
-        loadChildren: './landing/landing.module#LandingModule'
-    }
+        redirectTo: 'landing',
+         pathMatch: 'full'
+    },
+  {
+    path: 'landing',
+    loadChildren: './landing/landing.module#LandingModule'
+  }
 ];
 // const routes: Routes = [
 //     {

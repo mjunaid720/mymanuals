@@ -24,7 +24,12 @@
 
   <div class="form-group">
     <label>Add Images(*.jpg) for this product</label>*
-    <input type="file" multiple="multiple" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.images" (change)="imageOnChange($event)">
+    <input type="file" multiple="multiple" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="product.secondaryImages" (change)="imageOnChange($event)">
+  </div>
+
+  <div class="form-group">
+    <label>Add Feature Image(*.jpg) for this product</label>*
+    <input type="file" class="form-control-file" id="featureImg" [(ngModel)]="product.primaryImage" (change)="featureImageOnChange($event)">
   </div>
 
   <div class="form-group" style="border: 2px #ccc solid; padding: 5px;">
