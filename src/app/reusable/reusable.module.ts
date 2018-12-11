@@ -7,9 +7,10 @@ import { ButtonComponent } from './button/button.component';
 import { SearchComponent } from './search/search.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent],
+  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent, LogoutComponent],
   imports: [
     CommonModule,
     ReusableRoutingModule,
