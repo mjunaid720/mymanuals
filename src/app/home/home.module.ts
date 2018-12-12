@@ -8,9 +8,10 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import {ReusableModule} from '../reusable/reusable.module';
 import { LightboxModule } from 'ngx-lightbox';
 import { RatingComponent } from './rating/rating.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
-  declarations: [HomeComponent, ProductDetailComponent, RatingComponent],
+  declarations: [HomeComponent, ProductDetailComponent, RatingComponent, UserprofileComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

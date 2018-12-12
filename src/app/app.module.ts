@@ -6,11 +6,10 @@ import { LoginService } from './login.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
-import {RepresentativeModule} from './representative/representative.module';
 import { ReusableModule } from './reusable/reusable.module';
 import { LoginModule } from './login/login.module';
 import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import {HeaderComponent} from './header/header.component';
 
 const routes: Routes = [
     {
@@ -62,8 +61,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    
+    FooterComponent
   ],
   imports: [
     BrowserModule,

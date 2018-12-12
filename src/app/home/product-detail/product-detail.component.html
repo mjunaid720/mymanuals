@@ -87,7 +87,7 @@
         <tr *ngFor="let m of proDetail.manuals">
           <td><a href="./assets/{{m.url.split('\\').pop(-1)}}" download>link</a></td>
           <td>{{m.description}}</td>
-          <td><app-rating></app-rating></td>
+          <td><app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'></app-rating></td>
           <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
         </tr>
       </table>
