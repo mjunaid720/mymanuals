@@ -9,6 +9,7 @@
 
 
       </ul>
+    <div *ngIf="loggedOut">
       <ul class="navbar-nav">
         <li class="nav-item active" >
           <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">product listing</a>
@@ -23,5 +24,9 @@
               <a class="nav-link" style="text-decoration: underline; cursor: pointer">admin </a>
           </li>
       </ul>
+    </div>
+    <div *ngIf="!loggedOut">
+      <button type="button" class="btn btn-primary" (click)="navigateUserProfile()">Profile</button>
+    </div>
   </div>
 </nav>

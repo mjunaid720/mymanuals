@@ -27,6 +27,8 @@ export class HeaderComponent implements OnInit {
       role : ''
   };
 
+  loggedOut: boolean;
+  
   loginAs(l) {
       if (l == 'company') {
           this.displayPage = 1;
@@ -39,7 +41,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
       this.displayPage = 3;
+      if (localStorage.getItem('data')) {
+        this.loggedOut = false;
+      } else {
+        this.loggedOut = true;
+      }
   }
 
 
+  navigateUserProfile() {
+    this.router.navigateByUrl('/home/userprofile');
+  }
 }
