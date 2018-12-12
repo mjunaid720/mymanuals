@@ -35,6 +35,7 @@
               <i class="glyphicon glyphicon-envelope"></i>email@example.com
               <br />
               <i class="glyphicon glyphicon-globe"></i>
+                <label><input type="checkbox" [(ngModel)]="isSubscribed" (change)="subscribed($event)">Subscribe</label>
 
             <!-- Split button -->
             <div class="btn-group">
