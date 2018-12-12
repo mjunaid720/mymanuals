@@ -88,7 +88,7 @@
           <td><a href="{{m.url}}" download>link</a></td>
           <td>{{m.description}}</td>
           <td>
-            <!--<app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'></app-rating>-->
+            <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
           </td>
           <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
         </tr>

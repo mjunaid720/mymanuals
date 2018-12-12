@@ -151,7 +151,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ratingComponentClick(event) {
-    const item = this.proDetail.find(((i: any) => i.id === event.id));
+    console.log(this.proDetail.manuals);
+
+    const item = [this.proDetail.manuals].find(((i: any) => i.id === event.id));
+    console.log(item);
     if (!!item) {
       item.rating = event.rating;
       this.ratingClicked = event.rating;
