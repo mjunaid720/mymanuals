@@ -18,6 +18,7 @@ export class RatingComponent implements OnInit {
   }
 
   onClick(rating: number): void {
+    console.log(rating);
     this.rating = rating;
     this.ratingClick.emit({
       itemId: this.itemId,

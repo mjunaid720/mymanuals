@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DomSanitizer} from '@angular/platform-browser';
+
 
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css']
+  selector: 'app-view-product',
+  templateUrl: './view-product.component.html',
+  styleUrls: ['./view-product.component.css']
 })
-export class UserprofileComponent implements OnInit {
+export class ViewProductComponent implements OnInit {
 
-  productUrl: any = '';
-  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) { }
-  products: any = [];
+  constructor(private http: HttpClient) { }
+  productUrl : any = '';
+  products : any = [];
+
   ngOnInit() {
     this.loadProdudtsWithIntrests();
   }
 
-  loadProdudtsWithIntrests(){
+  loadProdudtsWithIntrests() {
     this.productUrl = 'http://localhost:8080/api/product/selection';
     let scope = this;
     let header = new HttpHeaders();
@@ -32,4 +33,5 @@ export class UserprofileComponent implements OnInit {
     });
 
   }
+
 }
