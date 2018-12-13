@@ -33,7 +33,7 @@ export class ConsumerComponent implements OnInit {
                 if (x.hasOwnProperty('token')) {
                     this.error = '';
                     localStorage.setItem('data', JSON.stringify({'token' : x.token, 'username' : this.user.username, 'role' : 'consumer'}));
-                    this.router.navigate(['/home']);
+                    this.router.navigate(['/home/userprofile']);
                 } else {
                     this.error = 'notfound';
                 }

@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginService} from './login.service';
@@ -8,7 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuardService as AuthGuard} from './auth-guard.service';
 import {RepresentativeModule} from './representative/representative.module';
 import {ReusableModule} from './reusable/reusable.module';
-import {LandingModule} from "./landing/landing.module";
+import {LandingModule} from './landing/landing.module';
 
 const routes: Routes = [
   {
@@ -59,8 +59,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +69,7 @@ const routes: Routes = [
     ReusableModule,
     LandingModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [LoginService],
   bootstrap: [AppComponent]
 })
