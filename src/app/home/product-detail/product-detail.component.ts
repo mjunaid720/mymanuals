@@ -23,27 +23,31 @@ export class ProductDetailComponent implements OnInit {
   likedBtn: boolean = false;
   likeBtnStatus = false;
   private _album = [];
+  ratingClicked: number;
+  itemIdRatingClicked: string;
 
   ngOnInit() {
   }
 
   setUrl(src, caption1, thumb) {
     const caption = 'image';
-    let url = src.split('\\').pop(-1);
+    let url = src;
     url = './assets/' + url;
+    this._album = [];
     this._album.push({
-      src: url,
+      src: src,
       caption: caption,
       thumb: thumb
-  })
+  });
+    console.log(this._album);
     return this._album;
   }
 
   open(index: number): void {
     console.log(index);
     // open lightbox
-    const data = this.setUrl(this.proDetail.images[index].url, 'image', '');
-    this._lightbox.open(data, index);
+    const data = this.setUrl(this.proDetail.secondaryImages[index].url, 'image', '');
+    this._lightbox.open(data, 0);
   }
 
   close(): void {
@@ -71,9 +75,19 @@ export class ProductDetailComponent implements OnInit {
     //   token = prsData.token;
     // }
     // this.proDetail = data;
-    let obs =  this.http.get('http://localhost:8080/api/product/'+id, {
-      headers: new HttpHeaders().set('Authorization', token)
-    });
+    let obs;
+    if (token == '' || prsData.role == 'rep' || prsData.role == 'company') {
+      obs =  this.http.get('http://localhost:8080/api/product/' + id, {
+        headers: new HttpHeaders()
+          // .set('Authorization', token)
+      });
+    } else {
+      obs =  this.http.get('http://localhost:8080/api/product/' + id, {
+        headers: new HttpHeaders()
+          .set('Authorization', token)
+      });
+    }
+
     obs.subscribe((x) => {
       this.proDetail = x;
       if(this.proDetail.hasOwnProperty('hasBadge')){
@@ -118,23 +132,34 @@ export class ProductDetailComponent implements OnInit {
   }
 
   removeManual(mId) {
- var aa = confirm("Are you sure !");
- if (aa) {
-   const data = localStorage.getItem('data');
-   const prsData = JSON.parse(data);
-   console.log(prsData);
-   if (!this.isEmpty(prsData)) {
-     if(prsData.role == 'rep') {
-       let obs =  this.http.delete('http://localhost:8080/api/product/manual/' +mId, {
-         headers: new HttpHeaders().set('Authorization', prsData.token)
-       });
-       obs.subscribe((x) => {
-         this.proDetail = x;
-       });
+     var aa = confirm("Are you sure !");
+     if (aa) {
+       const data = localStorage.getItem('data');
+       const prsData = JSON.parse(data);
+       console.log(prsData);
+       if (!this.isEmpty(prsData)) {
+         if(prsData.role == 'rep') {
+           let obs =  this.http.delete('http://localhost:8080/api/product/manual/' + mId, {
+             headers: new HttpHeaders().set('Authorization', prsData.token)
+           });
+           obs.subscribe((x) => {
+             this.proDetail = x;
+           });
+         }
+       }
      }
-   }
- }
+  }
 
+  ratingComponentClick(event) {
+    console.log(this.proDetail.manuals);
+
+    const item = [this.proDetail.manuals].find(((i: any) => i.id === event.id));
+    console.log(item);
+    if (!!item) {
+      item.rating = event.rating;
+      this.ratingClicked = event.rating;
+      this.itemIdRatingClicked = item.company;
+    }
   }
 
 

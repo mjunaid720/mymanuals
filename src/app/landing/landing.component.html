@@ -1,0 +1,29 @@
+<h2>Latest Products</h2>
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>
+      Product Name
+    </th>
+    <th>
+      Model
+    </th>
+    <th>
+      Category
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of productList">
+    <td>
+      {{item.name}}
+    </td>
+    <td>
+      {{item.model}}
+    </td>
+    <td>
+      {{item.category.name}}
+    </td>
+  </tr>
+  </tbody>
+</table>

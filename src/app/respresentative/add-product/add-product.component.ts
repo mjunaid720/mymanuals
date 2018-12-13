@@ -19,8 +19,9 @@ export class AddProductComponent implements OnInit {
     name : '',
     model : '',
     category : '',
-    images : [],
-    pdfs : []
+    secondaryImages : [],
+    pdfs : [],
+    primaryImage : {}
   };
   productList: any;
   categories: any;
@@ -28,6 +29,7 @@ export class AddProductComponent implements OnInit {
   error: any = 0;
   imageToUpload: any = [];
   fileToUpload: any = [];
+  primaryImage: any = {};
 
   constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
     this.getListOfCategories();
@@ -105,9 +107,11 @@ export class AddProductComponent implements OnInit {
     let reqPrord = [];
     reqPrord = this.product;
 
-    reqPrord['images'] = this.imageToUpload;
+    reqPrord['secondaryImages'] = this.imageToUpload;
 
     reqPrord['manuals'] = this.pdfArray;
+
+    reqPrord['primaryImage'] = this.primaryImage;
 
     const scope = this;
     const data = localStorage.getItem('data');
@@ -117,7 +121,9 @@ export class AddProductComponent implements OnInit {
     delete reqPrord['pdfs'];
     if (reqPrord['categoryId'] == '') {
       this.error = 2;
-    } else if (this.isEmpty((reqPrord['images']))) {
+    } else if (this.isEmpty((reqPrord['secondaryImages']))) {
+      this.error = 2;
+    } else if (this.isEmpty((reqPrord['primaryImage']))) {
       this.error = 2;
     } else if (reqPrord['name'] == '' || reqPrord['model'] == '') {
       this.error = 2;
@@ -182,6 +188,24 @@ export class AddProductComponent implements OnInit {
 
   }
 
+  featureImgByteCode(inputValue: any): void {
+    let scope = this;
+    var file: File = inputValue;
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      scope.primaryImage =  { 'data' : myReader.result};
+    }
+    myReader.readAsDataURL(file);
+  }
+
+  featureImageOnChange(event) {
+    const scope = this;
+    Array.from(event.target.files).forEach(function (child) {
+      scope.featureImgByteCode(child);
+    });
+  }
+
   pdfOnChange(event, i) {
     this.fileToUpload[0] = event.target.files[0];
     this.readThisPdf(event.target, i);
@@ -200,8 +224,9 @@ export class AddProductComponent implements OnInit {
   setToEmpty() {
     this.product['name'] = '';
     this.product['model'] = '';
-    this.product['images'] = [];
+    this.product['secondaryImages'] = [];
     this.product['manuals'] = [];
+    this.product['primaryImage'] = {};
 
     this.imageToUpload = [];
 

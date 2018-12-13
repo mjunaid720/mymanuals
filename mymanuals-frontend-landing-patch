@@ -1,0 +1,170 @@
+diff --git a/src/app/app.module.ts b/src/app/app.module.ts
+index c2a2941..8375688 100644
+--- a/src/app/app.module.ts
++++ b/src/app/app.module.ts
+@@ -30,11 +30,10 @@ const routes: Routes = [
+     path: 'home',
+     loadChildren: './home/home.module#HomeModule'
+   },
+-    {
+-        path: '',
+-        redirectTo: 'login',
+-        pathMatch: 'full'
+-    }
++  {
++    path: '',
++    loadChildren: './landing/landing.module#LandingModule'
++  }
+ ];
+ // const routes: Routes = [
+ //     {
+diff --git a/src/app/landing/landing-routing.module.ts b/src/app/landing/landing-routing.module.ts
+new file mode 100644
+index 0000000..ba4b099
+--- /dev/null
++++ b/src/app/landing/landing-routing.module.ts
+@@ -0,0 +1,17 @@
++import { NgModule } from '@angular/core';
++import { Routes, RouterModule } from '@angular/router';
++import { LandingComponent} from './landing.component';
++
++
++const routes: Routes = [
++    {
++        path: '',
++        component: LandingComponent
++    }
++];
++
++@NgModule({
++    imports: [RouterModule.forChild(routes)],
++    exports: [RouterModule]
++})
++export class LandingRoutingModule { }
+diff --git a/src/app/landing/landing.component.css b/src/app/landing/landing.component.css
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/app/landing/landing.component.html b/src/app/landing/landing.component.html
+new file mode 100644
+index 0000000..f2343bf
+--- /dev/null
++++ b/src/app/landing/landing.component.html
+@@ -0,0 +1,29 @@
++<h2>Latest Products</h2>
++<table class="table table-hover table-bordered table-striped">
++  <thead>
++  <tr>
++    <th>
++      Product Name
++    </th>
++    <th>
++      Model
++    </th>
++    <th>
++      Category
++    </th>
++  </tr>
++  </thead>
++  <tbody>
++  <tr *ngFor="let item of productList">
++    <td>
++      {{item.name}}
++    </td>
++    <td>
++      {{item.model}}
++    </td>
++    <td>
++      {{item.category.name}}
++    </td>
++  </tr>
++  </tbody>
++</table>
+diff --git a/src/app/landing/landing.component.spec.ts b/src/app/landing/landing.component.spec.ts
+new file mode 100644
+index 0000000..fc4cff8
+--- /dev/null
++++ b/src/app/landing/landing.component.spec.ts
+@@ -0,0 +1,25 @@
++import { async, ComponentFixture, TestBed } from '@angular/core/testing';
++
++import { LandingComponent } from './landing.component';
++
++describe('LandingComponent', () => {
++  let component: LandingComponent;
++  let fixture: ComponentFixture<LandingComponent>;
++
++  beforeEach(async(() => {
++    TestBed.configureTestingModule({
++      declarations: [ LandingComponent ]
++    })
++    .compileComponents();
++  }));
++
++  beforeEach(() => {
++    fixture = TestBed.createComponent(LandingComponent);
++    component = fixture.componentInstance;
++    fixture.detectChanges();
++  });
++
++  it('should create', () => {
++    expect(component).toBeTruthy();
++  });
++});
+diff --git a/src/app/landing/landing.component.ts b/src/app/landing/landing.component.ts
+new file mode 100644
+index 0000000..5d19eec
+--- /dev/null
++++ b/src/app/landing/landing.component.ts
+@@ -0,0 +1,31 @@
++import { Component, OnInit } from '@angular/core';
++import {HttpClient, HttpHeaders} from "@angular/common/http";
++import {DomSanitizer} from "@angular/platform-browser";
++
++@Component({
++  selector: 'app-landing',
++  templateUrl: './landing.component.html',
++  styleUrls: ['./landing.component.css']
++})
++export class LandingComponent implements OnInit {
++  private productList: any;
++
++  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
++    this.getLatestProducts();
++  }
++
++  ngOnInit() {
++  }
++
++  getLatestProducts() {
++    const obs = this.http.get('http://localhost:8080/api/product/latest', {
++      headers: new HttpHeaders().set('Content-Type', 'application/json'),
++    });
++    obs.subscribe((products) =>
++    this.productList = products);
++  }
++
++  getProductCategory(categoryId) {
++
++  }
++}
+diff --git a/src/app/landing/landing.module.ts b/src/app/landing/landing.module.ts
+new file mode 100644
+index 0000000..0a9a9e1
+--- /dev/null
++++ b/src/app/landing/landing.module.ts
+@@ -0,0 +1,15 @@
++import { NgModule } from '@angular/core';
++import { CommonModule } from '@angular/common';
++import { LandingComponent } from './landing.component';
++import { HttpClientModule } from '@angular/common/http';
++import { LandingRoutingModule } from "./landing-routing.module";
++
++@NgModule({
++  declarations: [LandingComponent],
++  imports: [
++    CommonModule,
++    LandingRoutingModule,
++    HttpClientModule
++  ]
++})
++export class LandingModule { }
