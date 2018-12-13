@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   pdf: any = '';
   ngOnInit() {
     this.loadCategories();
-    this.loadProdudtsWithIntrests();
+    //this.loadProdudtsWithIntrests();
   }
 
   loadCategories(){
