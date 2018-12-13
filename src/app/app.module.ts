@@ -10,6 +10,7 @@ import {RepresentativeModule} from './representative/representative.module';
 import {ReusableModule} from './reusable/reusable.module';
 import {LandingModule} from './landing/landing.module';
 import {FooterComponent} from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
