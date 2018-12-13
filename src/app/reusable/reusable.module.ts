@@ -18,7 +18,8 @@ import { LogoutComponent } from './logout/logout.component';
   ],
   exports: [
     SearchComponent,
-    ButtonComponent
+    ButtonComponent,
+    LogoutComponent
 ]
 })
 export class ReusableModule { }

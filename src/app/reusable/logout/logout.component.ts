@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-logout',
@@ -9,17 +8,14 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  url:string = '';
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private router:Router) { }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/landing']);
+  }
 
   ngOnInit() {
-  }
-   
-  logout(){
-    let obs = this.http.get(this.url);
-    obs.subscribe((x) =>{
-//this.router.navigate('hh');
-    });
   }
 
 }
