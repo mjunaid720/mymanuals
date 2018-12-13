@@ -36,7 +36,6 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },
-
   {
     path: 'result',
     loadChildren: './reusable/reusable.module#ReusableModule'
@@ -60,7 +59,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

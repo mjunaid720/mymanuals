@@ -9,8 +9,9 @@ import { RepresentativeComponent } from './representative/representative.compone
 import { CompanyComponent } from './company/company.component';
 
 import { ReusableModule } from '../reusable/reusable.module';
+import { HeaderComponent } from '../header/header.component';
 @NgModule({
-  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent],
+  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent, HeaderComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,

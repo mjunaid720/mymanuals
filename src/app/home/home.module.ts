@@ -7,9 +7,11 @@ import {FormsModule} from '@angular/forms';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {ReusableModule} from '../reusable/reusable.module';
 import { LightboxModule } from 'ngx-lightbox';
+import { RatingComponent } from './rating/rating.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
-  declarations: [HomeComponent, ProductDetailComponent],
+  declarations: [HomeComponent, ProductDetailComponent, RatingComponent, UserprofileComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

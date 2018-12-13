@@ -50,10 +50,10 @@
     </td>
     <td>{{pro.model}}</td>
     <td>
-      <span *ngIf="pro.images.length > 0"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="./assets/{{pro.images[0].url.split('\\').pop(-1)}}" data-holder-rendered="true"></span>
+      <span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>
     </td>
     <td>
-      <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="./assets/{{pro.manuals[0].url.split('\\').pop(-1)}}" download>download</a></span></td>
+      <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>download</a></span></td>
   </tr>
   </tbody>
 </table>
