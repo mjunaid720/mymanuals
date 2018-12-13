@@ -11,6 +11,7 @@ import {ReusableModule} from './reusable/reusable.module';
 import {LandingModule} from './landing/landing.module';
 import {FooterComponent} from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { Globals } from './globals';
 
 const routes: Routes = [
   {
@@ -74,7 +75,7 @@ const routes: Routes = [
     LandingModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [LoginService],
+  providers: [LoginService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule {

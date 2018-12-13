@@ -9,7 +9,7 @@
 
 
       </ul>
-      <div *ngIf='prsData == null'>
+      <div *ngIf="!glob.hasSession" >
         <ul class="navbar-nav">
             <li class="nav-item active" >
               <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">product listing</a>
@@ -25,9 +25,20 @@
               </li>
           </ul>
       </div>
-    <div *ngIf='prsData!=null'>
-            Login as
-            | <app-logout></app-logout>
+    <div *ngIf="glob.hasSession">
+      <ul class="navbar-nav">
+        <li style="padding-top: 9px;">
+          Login as <b>{{glob.sessionObj.username}}</b> |
+        </li>
+        <li class="nav-item active" *ngIf="glob.sessionObj.role == 'consumer'">
+          <a href="/home/userprofile" class="nav-link" style="text-decoration: underline; cursor: pointer">Profile</a>
+        </li>
+        <li style="padding-top: 9px;">
+           <app-logout></app-logout>
+        </li>
+      </ul>
+
+
     </div>
   </div>
 </nav>

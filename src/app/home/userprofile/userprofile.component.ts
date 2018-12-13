@@ -11,7 +11,9 @@ export class UserprofileComponent implements OnInit {
 
   productUrl: any = '';
   showInterested : boolean = false;
-  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) { }
+  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
+
+  }
   products: any = [];
   userData: any = [];
   ngOnInit() {

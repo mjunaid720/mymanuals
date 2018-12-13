@@ -22,15 +22,19 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="uname1">Name</label>
+                <label for="uname1">Name*</label>
                 <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1"  [(ngModel)]="user.name">
               </div>
               <div class="form-group">
-                <label for="uname1">Username</label>
+                <label for="uname1">Email*</label>
+                <input type="email" class="form-control form-control-lg rounded-0" name="uname1" id="email"  [(ngModel)]="user.email">
+              </div>
+              <div class="form-group">
+                <label for="uname1">Username*</label>
                 <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" [(ngModel)]="user.username">
               </div>
               <div class="form-group">
-                <label>Password</label>
+                <label>Password*</label>
                 <input type="password" class="form-control form-control-lg rounded-0" id="pwd1"  autocomplete="new-password" [(ngModel)]="user.password">
               </div>
               <div>

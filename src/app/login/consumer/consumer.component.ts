@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../login.service';
 import {Router} from '@angular/router';
+import {Globals} from '../../globals';
 
 @Component({
   selector: 'app-consumer',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class ConsumerComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private globals: Globals) { }
 
     title = 'demo';
     error = '';
@@ -32,7 +33,9 @@ export class ConsumerComponent implements OnInit {
             obs.subscribe((x: {token: ''}) => {
                 if (x.hasOwnProperty('token')) {
                     this.error = '';
+                    this.globals.hasSession = true;
                     localStorage.setItem('data', JSON.stringify({'token' : x.token, 'username' : this.user.username, 'role' : 'consumer'}));
+                  this.globals.sessionObj = {'token' : x.token, 'username' : this.user.username, 'role' : 'consumer'};
                     this.router.navigate(['/home/userprofile']);
                 } else {
                     this.error = 'notfound';

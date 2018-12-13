@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../login.service';
 import {Router} from '@angular/router';
+import {Globals} from '../../globals';
 
 @Component({
   selector: 'app-representative',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RepresentativeComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private globals: Globals) { }
 
     title = 'demo';
     error = '';
@@ -33,8 +34,10 @@ export class RepresentativeComponent implements OnInit {
                 if (x.hasOwnProperty('token')) {
                     this.error = '';
                     console.log('now logged in');
+                    this.globals.hasSession = true;
                     localStorage.setItem('data', JSON.stringify({'token' : x.token, 'username' : this.user.username, 'role' : 'rep'}));
-                    this.router.navigate(['/rep']);
+                  this.globals.sessionObj = {'token' : x.token, 'username' : this.user.username, 'role' : 'rep'};
+                  this.router.navigate(['/rep']);
                 } else {
                     this.error = 'notfound';
                 }
