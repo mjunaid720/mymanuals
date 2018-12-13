@@ -30,6 +30,9 @@
         <li style="padding-top: 9px;">
           Login as <b>{{glob.sessionObj.username}}</b> |
         </li>
+        <li style="padding-top: 9px;">
+          <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">Product Listing</a>
+        </li>
         <li class="nav-item active" *ngIf="glob.sessionObj.role == 'consumer'">
           <a href="/home/userprofile" class="nav-link" style="text-decoration: underline; cursor: pointer">Profile</a>
         </li>
