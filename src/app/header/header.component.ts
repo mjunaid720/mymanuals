@@ -29,11 +29,14 @@ export class HeaderComponent implements OnInit {
 
   loginAs(l) {
       if (l == 'company') {
-          this.displayPage = 1;
+         // this.displayPage = 1;
+         this.router.navigate(['admin']);
       } else if (l == 'representative') {
-          this.displayPage = 2;
+        this.router.navigate(['representative']);
+         // this.displayPage = 2;
       } else {
-          this.displayPage = 3;
+         // this.displayPage = 3;
+         this.router.navigate(['consumer']);
       }
   }
 
