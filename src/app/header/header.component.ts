@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   param1: String = '';
   displayPage: Number = 0;
+  prsData:any;
   constructor(private route: ActivatedRoute, private http: HttpClient, private loginService: LoginService, private router: Router) {
       this.route.queryParams.subscribe(params => {
           this.param1 = params['as'];
@@ -30,18 +31,21 @@ export class HeaderComponent implements OnInit {
   loginAs(l) {
       if (l == 'company') {
          // this.displayPage = 1;
-         this.router.navigate(['admin']);
+         this.router.navigate(['login/admin']);
       } else if (l == 'representative') {
-        this.router.navigate(['representative']);
+        this.router.navigate(['login/representative']);
          // this.displayPage = 2;
       } else {
          // this.displayPage = 3;
-         this.router.navigate(['consumer']);
+         this.router.navigate(['login/consumer']);
       }
   }
 
   ngOnInit() {
       this.displayPage = 3;
+      const data = localStorage.getItem('data');
+      const prsData = JSON.parse(data);
+      console.log(prsData);
   }
 
 
