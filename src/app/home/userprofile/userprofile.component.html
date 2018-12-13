@@ -22,10 +22,10 @@
             <!-- Split button -->
             <div class="btn-group">
               <button *ngIf="!userData.subscription" type="button" class="btn btn-primary" (click)="subscribeOrUnsubscribe('sub')">
-                Show Contact</button>
+                Subscribe</button>
 
               <button *ngIf="userData.subscription" type="button" class="btn btn-danger" (click)="subscribeOrUnsubscribe('unsub')">
-                hide Contact</button>
+                Unsubscribe</button>
 
 
             </div>
