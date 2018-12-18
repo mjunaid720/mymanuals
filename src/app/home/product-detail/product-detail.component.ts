@@ -189,7 +189,7 @@ export class ProductDetailComponent implements OnInit {
         headers: new HttpHeaders().set('Authorization', prsData.token)
       });
       obs.subscribe((x) => {
-        this.proDetail = x;
+       
       });
     }
   }
