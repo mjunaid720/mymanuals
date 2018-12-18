@@ -1,36 +1,13 @@
-<!-- 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">MyManuals</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item active" >
-        <a href="/login" class="nav-link" style="text-decoration: underline; cursor: pointer">login </a>
-      </li>
-
-    </ul>
-  </div>
-</nav> -->
-
 <div class="container">
   <ol class="breadcrumb" style="margin-bottom: 0px; background: #fff">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Product</a></li>
+    <li class="breadcrumb-item"><a href="#">{{ 'HOME.HOME' | translate}}</a></li>
+    <li class="breadcrumb-item"><a href="#">{{ 'HOME.PRODUCT' | translate}}</a></li>
   </ol>
-  <h2 class="header-title ">Product List</h2>
+  <h2 class="header-title ">{{ 'HOME.PRODUCTLISTING' | translate}}</h2>
   <p></p>
-
-
   <div class="row">
     <div class="col-md-8">
-      <label for="select_categroy">Select category :</label>
+      <label for="select_categroy">{{ 'HOME.SELECTCATEGORY' | translate}} :</label>
       <select class="form-control" id="select_categroy"  [(ngModel)]="category" (change)="loadProdudts($event)">
         <option *ngFor="let cat of categories" [value]="cat.id">
           {{cat.name}}
@@ -38,26 +15,23 @@
       </select>
     </div>
     <div class="col-md-4">
-      <label >Search :</label>
+      <label >{{ 'HOME.SEARCH' | translate}} :</label>
       <app-search></app-search>
     </div>
   </div>
-
   <p></p>
-  <span>Products :</span>
+  <span>{{ 'HOME.PRODUCTS' | translate}} :</span>
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Model</th>
-      <th>Image</th>
-      <th>Manual in PDF</th>
-    
+      <th>{{ 'HOME.NAME' | translate}}</th>
+      <th>{{ 'HOME.MODEL' | translate}}</th>
+      <th>{{ 'HOME.IMAGE' | translate}}</th>
+      <th>{{ 'HOME.MANUALINPDF' | translate}}</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let pro of products">
-
       <td>
         <a routerLink="/home/product/{{pro.id}}">
         {{pro.name}}
@@ -65,14 +39,11 @@
       </td>
       <td>{{pro.model}}</td>
       <td>
-
         <span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>
       </td>
       <td>
-        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>download</a></span></td>
-
+        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>{{ 'HOME.DOWNLOAD' | translate}}</a></span></td>
       </tr>
     </tbody>
   </table>
-
 </div>

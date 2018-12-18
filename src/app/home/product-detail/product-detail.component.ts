@@ -33,6 +33,7 @@ export class ProductDetailComponent implements OnInit {
   private _album = [];
   ratingClicked: number;
   itemIdRatingClicked: string;
+  noteModel ={};
 
   ngOnInit() {
   }
@@ -179,6 +180,25 @@ export class ProductDetailComponent implements OnInit {
       if(prsData.role == 'consumer') {
         this.likedBtn = true;
       }
+    }
+  }
+
+  addNote(model:any){
+    console.log(model);
+    this.noteModel = {
+      "manualId": model.id,
+      "note": model.note
+
+    }
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    if (!this.isEmpty(prsData)) {
+      let obs =  this.http.post('http://localhost:8080/api/consumer/product/manual/note', this.noteModel,{
+        headers: new HttpHeaders().set('Authorization', prsData.token)
+      });
+      obs.subscribe((x) => {
+       
+      });
     }
   }
 

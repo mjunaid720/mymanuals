@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../login.service';
 import {Router} from '@angular/router';
 import {Globals} from '../../globals';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-representative',
@@ -10,7 +11,10 @@ import {Globals} from '../../globals';
 })
 export class RepresentativeComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router, private globals: Globals) { }
+  constructor(private loginService: LoginService, private router: Router, private globals: Globals, private translate: TranslateService) {
+    translate.addLangs(['en', 'se']);
+    translate.setDefaultLang(globals.defaultLang);
+  }
 
     title = 'demo';
     error = '';

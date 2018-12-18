@@ -1,7 +1,20 @@
 {
+  "LANDING": {
+    "LATESTPRODUCTMANUALS": "Senaste produkthandböckerna",
+    "MORE": "Mer"
+  },
   "HOME": {
-    "TITLE": "Bonjour Angular avec ngx-translate !",
-    "SELECT": "Changer la langue"
+    "HOME": "Hem",
+    "PRODUCTLISTING": "Produktlista",
+    "SELECTCATEGORY": "Välj kategori",
+    "SEARCH": "Sök",
+    "PRODUCTS": "Produkter",
+    "PRODUCT": "Produkt",
+    "NAME": "namn",
+    "MODEL": "Modell",
+    "IMAGE": "Bild",
+    "MANUALINPDF": "Manuell i PDF",
+    "DOWNLOAD": "Ladda ner"
   },
   "SIGNUP": {
     "USERNAME": "Name",
@@ -34,8 +47,17 @@
     "LOGINAS": "Logga in som "
   },
   "LOGIN": {
-	"USERNAME": "Username",
-	"PASSWORD": "Password"
+    "USERNAME": "Användarnamn",
+    "PASSWORD": "Lösenord",
+    "LOGINASACONSUMER": "Logga in som konsument",
+    "SIGNUP": "Signup",
+    "LOGIN": "Login"
+  },
+  "ERROR": {
+    "USERNAME": "Oops, you missed the UserName.",
+    "USERNOTFOUND": "User not found",
+    "PASSWORD": "Enter your password too!",
+    "EMPTYINPUT": "please select all fields"
   },
   "FOOTER": {
     "COPYRIGHT": "upphovsrätt"

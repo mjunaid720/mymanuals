@@ -1,7 +1,20 @@
 {
+  "LANDING": {
+    "LATESTPRODUCTMANUALS": "Latest Product Manuals",
+    "MORE": "more"
+  },
   "HOME": {
-    "TITLE": "Bonjour Angular avec ngx-translate !",
-    "SELECT": "Changer la langue"
+    "HOME": "Home",
+    "PRODUCTLISTING": "Product Listing",
+    "SELECTCATEGORY": "Select Category",
+    "SEARCH": "Search",
+    "PRODUCTS": "Products",
+    "PRODUCT": "Product",
+    "NAME": "Name",
+    "MODEL": "Model",
+    "IMAGE": "Image",
+    "MANUALINPDF": "Manual in PDF",
+    "DOWNLOAD": "Download"
   },
   "SIGNUP": {
     "USERNAME": "Name",
@@ -35,7 +48,16 @@
   },
   "LOGIN": {
     "USERNAME": "Username",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "LOGINASACONSUMER": "Login as a Consumer",
+    "SIGNUP": "Signup",
+    "LOGIN": "Login"
+  },
+  "ERROR": {
+    "USERNAME": "Oops, you missed the UserName.",
+    "USERNOTFOUND": "User not found",
+    "PASSWORD": "Enter your password too!",
+    "EMPTYINPUT": "please select all fields"
   },
   "FOOTER": {
     "COPYRIGHT": "Copyright"

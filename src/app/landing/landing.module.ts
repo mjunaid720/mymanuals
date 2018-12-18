@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing.component';
-import { HttpClientModule } from '@angular/common/http';
-import { LandingRoutingModule } from "./landing-routing.module";
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { LandingRoutingModule } from './landing-routing.module';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [LandingComponent],
   imports: [
     CommonModule,
     LandingRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ]
 })
 export class LandingModule { }

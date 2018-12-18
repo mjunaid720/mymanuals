@@ -1,45 +1,14 @@
-<!--<h2>Latest Products</h2>-->
-<!--<table class="table table-hover table-bordered table-striped">-->
-  <!--<thead>-->
-  <!--<tr>-->
-    <!--<th>-->
-      <!--Product Name-->
-    <!--</th>-->
-    <!--<th>-->
-      <!--Model-->
-    <!--</th>-->
-    <!--<th>-->
-      <!--Category-->
-    <!--</th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-  <!--<tbody>-->
-  <!--<tr *ngFor="let item of productList">-->
-    <!--<td>-->
-      <!--{{item.name}}-->
-    <!--</td>-->
-    <!--<td>-->
-      <!--{{item.model}}-->
-    <!--</td>-->
-    <!--<td>-->
-      <!--{{item.category.name}}-->
-    <!--</td>-->
-  <!--</tr>-->
-  <!--</tbody>-->
-<!--</table>-->
 <section style="margin-top:20px">
   <div class="container-fluid">
     <div class="row">
       <div class="col">
         <div id="demo" class="carousel slide" data-ride="carousel">
-
           <!-- Indicators -->
           <ul class="carousel-indicators">
             <li data-target="#demo" data-slide-to="0" class="active"></li>
             <li data-target="#demo" data-slide-to="1"></li>
             <li data-target="#demo" data-slide-to="2"></li>
           </ul>
-
           <!-- The slideshow -->
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -52,7 +21,6 @@
               <img src="https://www.fastandup.in/images/landing-banners/xfastandup-charge.jpg.pagespeed.ic.lqDWIWdWeC.webp" alt="New York">
             </div>
           </div>
-
           <!-- Left and right controls -->
           <a class="carousel-control-prev" href="#demo" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -65,74 +33,28 @@
     </div>
   </div>
 </section>
-
-
 <!-- .//container -->
-
 <section>
   <div class="container-fluid">
     <br />
     <br />
-    <h2>Latest Product Manuals</h2>
+    <h2>{{ 'LANDING.LATESTPRODUCTMANUALS' | translate}}</h2>
     <div class="row">
-
-      <!--Profile Card 5-->
-      <!--<div class="col-md-3" >-->
-        <!--<div class="card profile-card-5">-->
-          <!--<div class="card-img-block">-->
-            <!--<img class="card-img-top" src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c" alt="Card image cap">-->
-          <!--</div>-->
-          <!--<div class="card-body pt-0">-->
-            <!--<h5 class="card-title">{{item.name}}</h5>-->
-            <!--<p class="card-text">28TH JUL 2018, 07:30 PM | HYDERABAD</p>-->
-            <!--<a href="#" class="btn btn-primary">Knon more...</a>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
-      <!--<div class="col-md-3">-->
-        <!--<div class="card profile-card-5">-->
-          <!--<div class="card-img-block">-->
-            <!--<img class="card-img-top" src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c" alt="Card image cap">-->
-          <!--</div>-->
-          <!--<div class="card-body pt-0">-->
-            <!--<h5 class="card-title">Florence Garza</h5>-->
-            <!--<p class="card-text">28TH JUL 2018, 07:30 PM | HYDERABAD</p>-->
-            <!--<a href="#" class="btn btn-primary">Knon more...</a>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
       <div class="col-md-3" *ngFor="let item of productList">
         <div class="card profile-card-5">
           <div class="card-img-block" *ngIf="item.primaryImage.url != ''" style="max-width: 327px; max-height: 327px; min-width: 327px; min-height: 327px;">
-            <img class="card-img-top" src="{{item.primaryImage.url}}" alt="Card image cap">
+            <img class="card-img-top" src="{{item.primaryImage.url}}" >
           </div>
           <div class="card-body pt-0">
-            <h5 class="card-title">Florence Garza</h5>
+            <h5 class="card-title">{{item.name}}</h5>
             <p class="card-text">{{item.model}}</p>
-            <a href="/home/product/{{item.id}}" class="btn btn-primary">Knon more...</a>
+            <a href="/home/product/{{item.id}}" class="btn btn-primary">{{ 'LANDING.MORE' | translate}}...</a>
           </div>
         </div>
       </div>
-
-      <!--<div class="col-md-3">-->
-        <!--<div class="card profile-card-5">-->
-          <!--<div class="card-img-block">-->
-            <!--<img class="card-img-top" src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c" alt="Card image cap">-->
-          <!--</div>-->
-          <!--<div class="card-body pt-0">-->
-            <!--<h5 class="card-title">Florence Garza</h5>-->
-            <!--<p class="card-text">28TH JUL 2018, 07:30 PM | HYDERABAD</p>-->
-            <!--<a href="#" class="btn btn-primary">Knon more...</a>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
     </div>
   </div>
 </section>
-
 <br/>
 
 

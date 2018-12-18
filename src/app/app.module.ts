@@ -14,6 +14,7 @@ import { Globals } from './globals';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 const routes: Routes = [
   {
@@ -51,16 +52,6 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-// const routes: Routes = [
-//     {
-//         path: 'orders',
-//         loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardModule'
-//     },
-//     {
-//         path: 'customers',
-//         loadChildren: './client-dashboard/client-dashboard.module#ClientDashboardModule'
-//     }
-// ];
 
 
 // AoT requires an exported function for factories
@@ -96,7 +87,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    EditorModule
+    EditorModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   exports: [
     TranslateModule

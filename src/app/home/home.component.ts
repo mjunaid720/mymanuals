@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import {TranslateService} from '@ngx-translate/core';
+import { Globals } from '../globals';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +11,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) { }
+  constructor(private http: HttpClient, private domSanitizer: DomSanitizer, private translate: TranslateService, private globals: Globals) {
+    translate.addLangs(['en', 'se']);
+    translate.setDefaultLang(globals.defaultLang);
+  }
 
   category: any = {};
   categories: any = [];
@@ -17,7 +23,6 @@ export class HomeComponent implements OnInit {
   pdf: any = '';
   ngOnInit() {
     this.loadCategories();
-    //this.loadProdudtsWithIntrests();
   }
 
   loadCategories(){
