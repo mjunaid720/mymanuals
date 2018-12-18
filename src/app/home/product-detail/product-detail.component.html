@@ -55,12 +55,15 @@
         <br />
 
       </div>
+      <h1>{{ 'HOME.TITLE' | translate}}</h1>
       <h1 style="clear: both; margin-top: 20px;text-decoration: underline">Manuals</h1>
       <table class="table table-striped custab">
         <thead>
         <tr>
+
           <th>Manual link</th>
           <th>Description</th>
+          <th>Add Note</th>
           <th>Rating</th>
           <th class="text-center" *ngIf="repPer">Action</th>
         </tr>
@@ -68,6 +71,9 @@
         <tr *ngFor="let m of proDetail.manuals">
           <td><a href="{{m.url}}" download>link</a></td>
           <td>{{m.description}}</td>
+          <td>
+            <!--<editor apiKey="wfyhqzeqlsvsmi9spof4jftgytcvofg97czitzpaz0lsdnc8" ></editor>-->
+          </td>
           <td>
             <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
           </td>

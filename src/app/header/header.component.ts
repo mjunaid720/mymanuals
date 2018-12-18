@@ -1,8 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../login.service';
-import {Globals} from '../globals';
+import { Globals } from '../globals';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -13,18 +14,19 @@ export class HeaderComponent implements OnInit {
 
   param1: String = '';
   displayPage: Number = 0;
-  prsData:any;
+  prsData: any;
   hasSession = false;
 
   glob: any;
   // @Output() myEvent = new EventEmitter();
-  constructor(private route: ActivatedRoute, private http: HttpClient, private loginService: LoginService, private router: Router, private globals: Globals) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private loginService: LoginService, private router: Router, private globals: Globals, private translate: TranslateService) {
       this.route.queryParams.subscribe(params => {
           this.param1 = params['as'];
       });
       this.glob = globals;
-      console.log('header value');
-      console.log(globals.hasSession);
+      translate.addLangs(['en', 'se']);
+      translate.setDefaultLang(this.glob .defaultLang);
+      console.log('in header ', this.glob);
   }
 
   title = 'demo';
@@ -57,11 +59,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log('testing');
       this.displayPage = 3;
       const data = localStorage.getItem('data');
       this.prsData = JSON.parse(data);
       console.log(this.prsData);
+  }
+
+  setLang(lang) {
+    localStorage.setItem('lang', lang);
+    this.globals.defaultLang = lang;
+    // this.translate.addLangs(['en', 'se']);
+    this.translate.setDefaultLang(this.glob.defaultLang);
   }
 }

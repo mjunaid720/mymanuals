@@ -12,16 +12,16 @@
       <div *ngIf="!glob.hasSession" >
         <ul class="navbar-nav">
             <li class="nav-item active" >
-              <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">product listing</a>
+              <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.PRODUCTLISTING' | translate}}</a>
             </li>
               <li class="nav-item active" (click)="loginAs('consumer')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">login </a>
+                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.LOGIN' | translate}} </a>
               </li>
               <li class="nav-item active" (click)="loginAs('representative')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">rep </a>
+                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.REP' | translate}} </a>
               </li>
               <li class="nav-item active" (click)="loginAs('company')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">admin </a>
+                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.COMPANY' | translate}} </a>
               </li>
           </ul>
       </div>
@@ -31,10 +31,10 @@
           Login as <b>{{glob.sessionObj.username}}</b> |
         </li>
         <li>
-          <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">Product Listing |</a>
+          <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.PRODUCTLISTING' | translate}} |</a>
         </li>
         <li class="nav-item active" *ngIf="glob.sessionObj.role == 'consumer'">
-          <a href="/home/userprofile" class="nav-link" style="text-decoration: underline; cursor: pointer">Profile</a>
+          <a href="/home/userprofile" class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.PROFILE' | translate}}</a>
         </li>
         <li style="padding-top: 9px;">
            <app-logout></app-logout>
@@ -42,6 +42,16 @@
       </ul>
 
 
+    </div>
+    <div>
+      <ul class="navbar-nav">
+        <li>
+          <a (click)="setLang('en')" class="nav-link" style=" cursor: pointer">en</a>
+        </li>
+        <li class="nav-item" >
+          <a (click)="setLang('se')" class="nav-link" style=" cursor: pointer">se</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

@@ -1,0 +1,43 @@
+{
+  "HOME": {
+    "TITLE": "Bonjour Angular avec ngx-translate !",
+    "SELECT": "Changer la langue"
+  },
+  "SIGNUP": {
+    "USERNAME": "Name",
+    "PASSWORD": "Password",
+    "SIGNUP": "Signup",
+    "SUCCESSMESSAGE": "You account created successfully",
+    "ERRORMSG": "Please fill all fields"
+  },
+  "PRODUCT" : {
+    "PRODUCTLIST": "Product List",
+    "SELECTCATEGORY": ""
+  },
+  "PRODUCTDETAIL": {
+    "HOME": "Name",
+    "PRODUCT": "Product",
+    "DETAIL": "Detail",
+    "MODEL": "Model",
+    "MANUALS": "Manual",
+    "MANUALLINK": "Manual link",
+    "DESCRIPTION": "Description",
+    "ADDNOTE": "Add Note",
+    "RATING": "Rating"
+  },
+  "HEADER": {
+    "LOGIN": "Login in",
+    "REP": "rep",
+    "COMPANY": "company",
+    "PRODUCTLISTING": "Product Listing",
+    "PROFILE": "Profile",
+    "LOGINAS": "Login as "
+  },
+  "LOGIN": {
+    "USERNAME": "Username",
+    "PASSWORD": "Password"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Copyright"
+  }
+}

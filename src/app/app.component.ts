@@ -11,22 +11,31 @@ import { Globals} from './globals';
 export class AppComponent {
   title = 'mymanual';
   constructor(private gloals: Globals) {
-    let header = new HttpHeaders();
-    let data = localStorage.getItem('data');
-    let prsData = JSON.parse(data);
-    if(this.isEmpty(prsData)) {
+    const header = new HttpHeaders();
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+
+
+    if (this.isEmpty(prsData)) {
       this.gloals.hasSession = false;
       this.gloals.sessionObj = {};
-    }else{
+    } else {
       this.gloals.hasSession = true;
       this.gloals.sessionObj = prsData;
+    }
+
+    const lang = localStorage.getItem('lang');
+    if (lang != null && lang != '') {
+      console.log('now it it incorrect');
+      this.gloals.defaultLang = lang;
     }
   }
 
   isEmpty(obj) {
-    for(var key in obj) {
-      if(obj.hasOwnProperty(key))
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
         return false;
+      }
     }
     return true;
   }

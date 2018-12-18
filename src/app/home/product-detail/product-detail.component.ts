@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Lightbox } from 'ngx-lightbox';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -10,11 +12,17 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: ActivatedRoute, private _lightbox: Lightbox) {
+  constructor(private http: HttpClient, private router: ActivatedRoute, private _lightbox: Lightbox, private translate: TranslateService) {
     let id = router.snapshot.paramMap.get("id");
     this.getProductDetail(id);
     this.checkRepPermission();
     this.checkConsumerPermission();
+    // added translate
+    translate.addLangs(['en', 'se']);
+    translate.setDefaultLang('en');
+
+    // const browserLang = translate.getBrowserLang();
+   // translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
 
   proDetail: any = [];

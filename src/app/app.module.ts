@@ -3,15 +3,17 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginService} from './login.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthGuardService as AuthGuard} from './auth-guard.service';
-import {RepresentativeModule} from './representative/representative.module';
 import {ReusableModule} from './reusable/reusable.module';
 import {LandingModule} from './landing/landing.module';
 import {FooterComponent} from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { Globals } from './globals';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 const routes: Routes = [
   {
@@ -60,6 +62,20 @@ const routes: Routes = [
 //     }
 // ];
 
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+}
+
+// export function createTranslateLoader(http: HttpClient) {
+//   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+// }
+
+// export function createTranslateLoader(http: HttpClient) {
+//   return new TranslateStaticLoader(http, './assets/i18n', '.json');
+// }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +88,18 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReusableModule,
-    LandingModule
+    LandingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    EditorModule
+  ],
+  exports: [
+    TranslateModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [LoginService, Globals],
