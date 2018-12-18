@@ -11,7 +11,7 @@ import {ReusableModule} from './reusable/reusable.module';
 import {LandingModule} from './landing/landing.module';
 import {FooterComponent} from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 const routes: Routes = [
   {
     path: 'landing',
@@ -71,7 +71,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReusableModule,
-    LandingModule
+    LandingModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [LoginService],
