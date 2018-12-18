@@ -8,9 +8,10 @@ import { SearchComponent } from './search/search.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
+import { EmailComponent } from './email/email.component';
 
 @NgModule({
-  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent, LogoutComponent],
+  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent, LogoutComponent, EmailComponent],
   imports: [
     CommonModule,
     ReusableRoutingModule,
