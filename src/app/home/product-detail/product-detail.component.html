@@ -81,6 +81,8 @@
           <th>Manual link</th>
           <th>Description</th>
           <th>Rating</th>
+          <th>Notes</th>
+
           <th class="text-center" *ngIf="repPer">Action</th>
         </tr>
         </thead>
@@ -89,6 +91,10 @@
           <td>{{m.description}}</td>
           <td>
             <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
+          </td>
+          <td>
+            <div [froalaEditor] [(froalaModel)]="m.notes"></div>
+            <button class="btn btn-success" (click)="addNote(m)">Add Notes</button>
           </td>
           <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
         </tr>
