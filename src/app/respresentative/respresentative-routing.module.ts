@@ -4,6 +4,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import {ViewProductComponent} from './view-product/view-product.component';
 import {ViewManualRecordComponent} from './view-manual-record/view-manual-record.component';
 import {SendEmailsToAllComponent} from './send-emails-to-all/send-emails-to-all.component';
+import {ViewServiceProviderComponent} from './view-service-provider/view-service-provider.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'sendemail',
     component: SendEmailsToAllComponent
+  },
+  {
+    path: 'viewsp',
+    component: ViewServiceProviderComponent
   }
 ];
 

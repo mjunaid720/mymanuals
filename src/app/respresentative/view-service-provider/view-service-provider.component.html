@@ -2,39 +2,34 @@
 <app-header></app-header>
 <div class="container" style="max-width: 62% !important;">
   <br />
-  <h2>Product List in Selected Category</h2>
-  <span>Products :</span>
+  <h2>Service Providers List</h2>
   <table class="table table-striped">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
-      <th>Model</th>
-      <th>Image</th>
-      <th>Manual in PDF</th>
-      <th>Interested</th>
-      <th>Action</th>
+      <th>Username</th>
+      <th>Authorization</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let pro of products" >
+    <tr *ngFor="let pro of servicePro" >
       <td>
-        <a routerLink="/home/product/{{pro.id}}">
-          {{pro.name}}
-        </a>
+          {{pro.id}}
       </td>
-      <td>{{pro.model}}</td>
       <td>
+        {{pro.name}}
+      </td>
+      <td>
+        {{pro.username}}
+      </td>
+      <td>
+        <a (click)="allowThisSP(pro)" class="btn btn-success" *ngIf="!pro.authentication">Allowed</a>
+        <a (click)="revokeThisSP(pro)" class="btn btn-danger" *ngIf="pro.authentication">Revoke</a>
+      </td>
 
-        <span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>
-      </td>
-      <td>
-        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>download</a></span></td>
-      <td>
-        <span>{{pro.selection}}</span>
-      </td>
-      <td>
-        <a href="/rep/viewmanual/{{pro.id}}" class="btn btn-default">View Detail</a>
-      </td>
+
+
     </tr>
     </tbody>
   </table>
