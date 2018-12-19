@@ -47,7 +47,7 @@
           <td>
             <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
           </td>
-          <td>
+          <td style="max-width: 250px;">
               <div [froalaEditor] [(froalaModel)]="m.note"></div>
             <button class="btn btn-success" (click)="addNote(m)">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</button>
           </td>

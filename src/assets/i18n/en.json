@@ -3,6 +3,17 @@
     "LATESTPRODUCTMANUALS": "Latest Product Manuals",
     "MORE": "more"
   },
+  "USERPROFILE": {
+    "USERPROFILE": "User Profile",
+    "SUBSCRIBLE": "Subscribe",
+    "UNSUBSCRIBE": "Unsubscribe",
+    "INTERESTEDPRODUCTS": "Interested Products",
+    "NAME": "Name",
+    "MODEL": "Model",
+    "IMAGE": "Image",
+    "MANUALINPDF": "Manual in PDF",
+    "DOWNLOAD": "Download"
+  },
   "HOME": {
     "HOME": "Home",
     "PRODUCTLISTING": "Product Listing",

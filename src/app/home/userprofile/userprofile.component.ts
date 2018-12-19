@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DomSanitizer} from '@angular/platform-browser';
+import {TranslateService} from '@ngx-translate/core';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-userprofile',
@@ -11,8 +13,9 @@ export class UserprofileComponent implements OnInit {
 
   productUrl: any = '';
   showInterested : boolean = false;
-  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
-
+  constructor(private http: HttpClient, private domSanitizer: DomSanitizer, private translate: TranslateService, private global: Globals) {
+    translate.addLangs(['en', 'se']);
+    translate.setDefaultLang(global.defaultLang);
   }
   products: any = [];
   userData: any = [];

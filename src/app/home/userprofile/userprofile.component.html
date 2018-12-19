@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-12">
       <div class="well well-sm">
-        <h2>User Profile</h2>
+        <h2>{{ 'USERPROFILE.USERPROFILE' | translate}}</h2>
         <hr />
         <div class="row">
 
@@ -22,10 +22,10 @@
             <!-- Split button -->
             <div class="btn-group">
               <button *ngIf="!userData.subscription" type="button" class="btn btn-primary" (click)="subscribeOrUnsubscribe('sub')">
-                Subscribe</button>
+                {{ 'USERPROFILE.SUBSCRIBLE' | translate}}</button>
 
               <button *ngIf="userData.subscription" type="button" class="btn btn-danger" (click)="subscribeOrUnsubscribe('unsub')">
-                Unsubscribe</button>
+                {{ 'USERPROFILE.UNSUBSCRIBE' | translate}}</button>
 
 
             </div>
@@ -37,14 +37,14 @@
             <br />
 
             <div class="row" *ngIf="showInterested">
-              <h2>Interested Products:</h2>
+              <h2>{{ 'USERPROFILE.INTERESTEDPRODUCTS' | translate}}:</h2>
               <table class="table table-striped">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Model</th>
-                  <th>Image</th>
-                  <th>Manual in PDF</th>
+                  <th>{{ 'USERPROFILE.NAME' | translate}}</th>
+                  <th>{{ 'USERPROFILE.MODEL' | translate}}</th>
+                  <th>{{ 'USERPROFILE.IMAGE' | translate}}</th>
+                  <th>{{ 'USERPROFILE.MANUALINPDF' | translate}}</th>
 
                 </tr>
                 </thead>

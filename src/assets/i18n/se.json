@@ -3,6 +3,17 @@
     "LATESTPRODUCTMANUALS": "Senaste produkthandböckerna",
     "MORE": "Mer"
   },
+  "USERPROFILE": {
+    "USERPROFILE": "Användarprofil",
+    "SUBSCRIBLE": "Prenumerera",
+    "UNSUBSCRIBE": "Säga upp",
+    "INTERESTEDPRODUCTS": "Intresserade produkter",
+    "NAME": "namn",
+    "MODEL": "Modell",
+    "IMAGE": "Bild",
+    "MANUALINPDF": "Manuell i PDF",
+    "DOWNLOAD": "Ladda ner"
+  },
   "HOME": {
     "HOME": "Hem",
     "PRODUCTLISTING": "Produktlista",
@@ -17,28 +28,28 @@
     "DOWNLOAD": "Ladda ner"
   },
   "SIGNUP": {
-    "USERNAME": "Name",
-    "PASSWORD": "Password",
-    "SIGNUP": "Signup",
-    "SUCCESSMESSAGE": "You account created successfully",
-    "ERRORMSG": "Please fill all fields"
+    "USERNAME": "namn",
+    "PASSWORD": "Lösenord",
+    "SIGNUP": "Bli Medlem",
+    "SUCCESSMESSAGE": "Ditt konto skapades framgångsrikt",
+    "ERRORMSG": "Snälla Fyll i alla fält"
   },
   "PRODUCT" : {
     "PRODUCTLIST": "Product List",
     "SELECTCATEGORY": ""
   },
   "PRODUCTDETAIL": {
-    "HOME": "Home",
-    "PRODUCT": "Product",
-    "DETAIL": "Detail",
-    "MODEL": "Model",
-    "MANUALS": "Manuals",
-    "MANUALLINK": "Manuals link",
-    "DESCRIPTION": "Description",
-    "ADDNOTE": "Add Note",
-    "RATING": "Rating",
-    "DELETE": "Delete",
-    "LINK": "Link"
+    "HOME": "Hem",
+    "PRODUCT": "Produkt",
+    "DETAIL": "Detalj",
+    "MODEL": "Modell",
+    "MANUALS": "handböcker",
+    "MANUALLINK": "Handböcker länk",
+    "DESCRIPTION": "Beskrivning",
+    "ADDNOTE": "Lägg till anteckning",
+    "RATING": "Betyg",
+    "DELETE": "Radera",
+    "LINK": "Länk"
   },
   "HEADER": {
     "LOGIN": "logga in",

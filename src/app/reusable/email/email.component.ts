@@ -7,18 +7,19 @@ import { HttpHeaders, HttpClientModule, HttpClient } from '@angular/common/http'
   styleUrls: ['./email.component.css']
 })
 export class EmailComponent implements OnInit {
-
+  emailSent= false;
   model = {
     "subject": '',
     "body": ''
-  }
+  };
   constructor( private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  send(model:any){
+  send(model:any) {
     console.log(model);
+    let scope = this;
 
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
@@ -26,7 +27,8 @@ export class EmailComponent implements OnInit {
         headers: new HttpHeaders().set('Authorization', prsData.token)
       });
       obs.subscribe((x) => {
-       
+        console.log(x);
+        scope.emailSent = true;
       });
   }
 

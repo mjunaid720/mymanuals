@@ -8,16 +8,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ServiceprovideremailComponent implements OnInit {
 
+  emailSent= false;
   model = {
     "subject" : '',
     "body" : ''
-  }
+  };
   constructor( private http: HttpClient) { }
 
   ngOnInit() {
   }
   send(model:any){
     console.log(model);
+    let scope = this;
 
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
@@ -25,7 +27,8 @@ export class ServiceprovideremailComponent implements OnInit {
         headers: new HttpHeaders().set('Authorization', prsData.token)
     });
     obs.subscribe((x) => {
-
+      console.log(x);
+      scope.emailSent = true;
     });
   }
 
