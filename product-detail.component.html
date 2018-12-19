@@ -1,0 +1,59 @@
+
+
+<div class="container">
+
+  <ol class="breadcrumb" style="margin-bottom: 0px; background: #fff">
+    <li class="breadcrumb-item"><a href="#">{{ 'PRODUCTDETAIL.HOME' | translate}}</a></li>
+    <li class="breadcrumb-item"><a href="#">{{ 'PRODUCTDETAIL.PRODUCT' | translate}}</a></li>
+    <li class="breadcrumb-item active">{{ 'PRODUCTDETAIL.DETAIL' | translate}}</li>
+  </ol>
+  <div class="card" style="margin-top: 0px;">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+
+          <div class="preview-pic tab-content" style="max-width: 497px; max-height: 310px; min-height: 310px;">
+            <div [ngClass]="(imageToShow==0+i )?'tab-pane active':'tab-pane'" id="pic-{{i}}" *ngFor="let m of proDetail.secondaryImages; let i = index"><img src="{{m.url}}" (click)="open(i)"/></div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li style="text-align: center;" [ngClass]="{'active': imageToShow==0+i}" *ngFor="let m of proDetail.secondaryImages; let i = index"><a data-target="#pic-{{i}}" data-toggle="tab" (click)="changeImage(i)"><img style="min-height: 67px; min-width: 88px; max-height: 67px; max-width: 88px;" src="{{m.url}}" /><span *ngIf="repPer" class="btn btn-danger btn-sm" (click)="deleteImage(m.id)"> {{ 'PRODUCTDETAIL.DELETE' | translate}}</span></a></li>
+          </ul>
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title">{{proDetail.name}} </h3>
+          <p>Model: {{proDetail.model}}</p>
+          <p class="product-description">{{proDetail.description}}</p>
+        <app-button *ngIf="proDetail.id && likedBtn" [status]="likeBtnStatus" [productId]="proDetail.id">
+        </app-button>
+        </div>
+        <br />
+        <br />
+      </div>
+      <h1 style="clear: both; margin-top: 20px;text-decoration: underline">{{ 'PRODUCTDETAIL.MANUALS' | translate}}</h1>
+      <table class="table table-striped custab">
+        <thead>
+        <tr>
+          <th>{{ 'PRODUCTDETAIL.MANUALLINK' | translate}}</th>
+          <th>{{ 'PRODUCTDETAIL.DESCRIPTION' | translate}}</th>
+          <th>{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
+          <th>{{ 'PRODUCTDETAIL.RATING' | translate}}</th>
+          <th class="text-center" *ngIf="repPer">Action</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let m of proDetail.manuals">
+          <td><a href="{{m.url}}" target="_blank" (click)="addCount(m)">{{ 'PRODUCTDETAIL.LINK' | translate}}</a></td>
+          <td>{{m.description}}</td>
+
+          <td>
+            <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
+          </td>
+          <td>
+              <div [froalaEditor] [(froalaModel)]="m.note"></div>
+            <button class="btn btn-success" (click)="addNote(m)">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</button>
+          </td>
+          <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> {{ 'PRODUCTDETAIL.DELETE' | translate}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
