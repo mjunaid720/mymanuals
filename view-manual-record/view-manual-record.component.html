@@ -1,0 +1,34 @@
+
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+  <br />
+  <h2>Manual Record</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Url</th>
+      <th>Description</th>
+      <th>Rating</th>
+      <th>Views</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let m of manuals" >
+      <td>
+        <a href="{{m.url}}" target="_blank">
+          View
+        </a>
+      </td>
+      <td>{{m.description}}</td>
+      <td>
+        {{m.rating}}
+      </td>
+      <td>
+        {{m.views}}
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
