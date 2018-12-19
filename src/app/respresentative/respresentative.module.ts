@@ -8,13 +8,16 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewManualRecordComponent } from './view-manual-record/view-manual-record.component';
+import { SendEmailsToAllComponent } from './send-emails-to-all/send-emails-to-all.component';
+import {ReusableModule} from '../reusable/reusable.module';
 
 @NgModule({
-  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent, ViewManualRecordComponent],
+  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent, ViewManualRecordComponent, SendEmailsToAllComponent],
   imports: [
     CommonModule,
     RespresentativeRoutingModule,
-    FormsModule
+    FormsModule,
+    ReusableModule
   ]
 })
 export class RespresentativeModule { }

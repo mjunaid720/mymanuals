@@ -7,9 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { AddServiceProviderComponent } from './add-service-provider/add-service-provider.component';
 
 @NgModule({
-  declarations: [AddrepresentativeComponent, HeaderComponent, FooterComponent],
+  declarations: [AddrepresentativeComponent, HeaderComponent, FooterComponent, AddServiceProviderComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule,

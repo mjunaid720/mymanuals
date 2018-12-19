@@ -25,6 +25,10 @@ export class LoginService {
       return this.http.put(this.url + 'representative/login', user);
   }
 
+  loginAsServiceProvider(user) {
+    return this.http.put(this.url + 'service-provider/login', user);
+  }
+
   headers() {
       return new HttpHeaders().set('Content-Type', 'application/json');
   }

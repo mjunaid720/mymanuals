@@ -1,0 +1,71 @@
+
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+
+
+  <h2 class="header-title  margin-top-5">Add Service Provider</h2>
+
+  <div class="form-group">
+    <label >User Name:</label>
+    <input type="text" class="form-control" id="rusername" [(ngModel)]="sp.username">
+  </div>
+
+  <div class="form-group">
+    <label for="rpassword">Password:</label>
+    <input type="text" class="form-control" id="rpassword" [(ngModel)]="sp.password">
+  </div>
+
+
+  <div class="form-group">
+    <label for="represtativeName">Service Provider Name:</label>
+    <input type="text" class="form-control" id="represtativeName" [(ngModel)]="sp.name">
+  </div>
+  <!--<div class="form-group">-->
+  <!--<label for="description">Description :</label>-->
+  <!--<input type="text" class="form-control" id="description" [(ngModel)]="rep.description">-->
+  <!--</div>-->
+
+  <button type="submit" class="btn btn-primary" (click)="addRepresentative()">Add Service Provider</button>
+  <br />
+  <br />
+  <h2>Service Provider List</h2>
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>
+        Unique_Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        User Name
+      </th>
+
+      <th>
+        Authorize
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of repos">
+      <td>
+        {{item.id}}
+      </td>
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.username}}
+      </td>
+
+      <td>
+        {{item.authorization}}
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<app-footer></app-footer>

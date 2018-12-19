@@ -3,7 +3,7 @@
   <input type="text" class="form-control" placeholder="Subject" [(ngModel)] = "model.subject"/>
 </div>
 </div>
-
+<br />
 <div class="row">
   <div class="col-md-12">
     <textarea class="form-control" placeholder="Body" [(ngModel)] = "model.body">
@@ -11,10 +11,11 @@
     </textarea>
   </div>
   </div>
+<br />
   <div class="row">
       <div class= "col-md-offset-8 col-md-4">
         <button class="btn btn-success" (click)="send()">Send</button>
-        <button class="btn btn-default" (click)="reset()">Reset</button>
+
       </div>
       </div>
 

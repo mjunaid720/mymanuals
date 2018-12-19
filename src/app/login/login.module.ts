@@ -11,6 +11,7 @@ import { CompanyComponent } from './company/company.component';
 import { ReusableModule } from '../reusable/reusable.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { ServiceProviderComponent } from './service-provider/service-provider.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -18,7 +19,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 @NgModule({
-  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent],
+  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent, ServiceProviderComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,

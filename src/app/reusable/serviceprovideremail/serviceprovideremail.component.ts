@@ -9,24 +9,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ServiceprovideremailComponent implements OnInit {
 
   model = {
-    "subject": '',
-    "body":''
+    "subject" : '',
+    "body" : ''
   }
   constructor( private http: HttpClient) { }
 
   ngOnInit() {
   }
-  addNote(model:any){
+  send(model:any){
     console.log(model);
 
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
     let obs =  this.http.post('http://localhost:8080/api/service-provider/email', this.model,{
         headers: new HttpHeaders().set('Authorization', prsData.token)
-      });
-      obs.subscribe((x) => {
-       
-      });
+    });
+    obs.subscribe((x) => {
+
+    });
   }
 
 }

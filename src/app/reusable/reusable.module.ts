@@ -21,7 +21,9 @@ import { ServiceprovideremailComponent } from './serviceprovideremail/servicepro
   exports: [
     SearchComponent,
     ButtonComponent,
-    LogoutComponent
+    LogoutComponent,
+    EmailComponent,
+    ServiceprovideremailComponent
 ]
 })
 export class ReusableModule { }

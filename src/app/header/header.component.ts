@@ -44,6 +44,8 @@ export class HeaderComponent implements OnInit {
       } else if (l == 'representative') {
         this.router.navigate(['login/representative']);
          // this.displayPage = 2;
+      } else if (l == 'sp') {
+        this.router.navigate(['login/sp']);
       } else {
          // this.displayPage = 3;
          this.router.navigate(['login/consumer']);

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import {HttpClient} from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-addrepresentative',

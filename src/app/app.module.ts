@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: './respresentative/respresentative.module#RespresentativeModule'
   },
   {
+    path: 'sp',
+    loadChildren: './service-provider/service-provider.module#ServiceProviderModule'
+  },
+  {
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },

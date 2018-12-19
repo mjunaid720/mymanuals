@@ -1,9 +1,10 @@
 <div class="row">
+  <h2>Send email</h2>
     <div class="col-md-12">
       <input type="text" class="form-control" placeholder="Subject" [(ngModel)] = "model.subject"/>
     </div>
     </div>
-    
+    <br />
     <div class="row">
       <div class="col-md-12">
         <textarea class="form-control" placeholder="Body" [(ngModel)] = "model.body">
@@ -11,6 +12,7 @@
         </textarea>
       </div>
       </div>
+<br />
       <div class="row">
           <div class= "col-md-offset-8 col-md-4">
             <button class="btn btn-success" (click)="send()">Send</button>
@@ -19,4 +21,3 @@
           </div>
     
       
-    

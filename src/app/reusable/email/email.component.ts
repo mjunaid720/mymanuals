@@ -10,13 +10,14 @@ export class EmailComponent implements OnInit {
 
   model = {
     "subject": '',
-    "body":''
+    "body": ''
   }
   constructor( private http: HttpClient) { }
 
   ngOnInit() {
   }
-  addNote(model:any){
+
+  send(model:any){
     console.log(model);
 
     const data = localStorage.getItem('data');
@@ -28,4 +29,6 @@ export class EmailComponent implements OnInit {
        
       });
   }
+
+
 }
