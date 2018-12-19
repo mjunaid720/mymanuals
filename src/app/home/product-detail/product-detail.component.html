@@ -35,7 +35,7 @@
         <tr>
           <th>{{ 'PRODUCTDETAIL.MANUALLINK' | translate}}</th>
           <th>{{ 'PRODUCTDETAIL.DESCRIPTION' | translate}}</th>
-          <th>{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
+          <th *ngIf="likedBtn">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
           <th>{{ 'PRODUCTDETAIL.RATING' | translate}}</th>
           <th class="text-center" *ngIf="repPer">Action</th>
         </tr>
@@ -44,12 +44,13 @@
           <td><a href="{{m.url}}" target="_blank" (click)="addCount(m)">{{ 'PRODUCTDETAIL.LINK' | translate}}</a></td>
           <td>{{m.description}}</td>
 
-          <td>
-            <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
-          </td>
-          <td style="max-width: 250px;">
+
+          <td style="max-width: 250px;" *ngIf="likedBtn">
               <div [froalaEditor] [(froalaModel)]="m.note"></div>
             <button class="btn btn-success" (click)="addNote(m)">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</button>
+          </td>
+          <td>
+            <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
           </td>
           <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> {{ 'PRODUCTDETAIL.DELETE' | translate}}</a></td>
         </tr>
