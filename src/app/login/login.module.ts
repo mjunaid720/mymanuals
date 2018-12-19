@@ -13,7 +13,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ServiceProviderComponent } from './service-provider/service-provider.component';
 
-
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
@@ -25,6 +24,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoginRoutingModule,
     FormsModule,
     ReusableModule,
+ 
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

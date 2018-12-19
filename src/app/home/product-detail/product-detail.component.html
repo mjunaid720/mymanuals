@@ -48,6 +48,7 @@
             <app-rating [rating]='m.rating' [itemId]='m.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
           </td>
           <td>
+              <div [froalaEditor] [(froalaModel)]="m.note"></div>
             <button class="btn btn-success" (click)="addNote(m)">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</button>
           </td>
           <td class="text-center" *ngIf="repPer"> <a class="btn btn-danger btn-xs" (click)="removeManual(m.id)" style="color: #fff;"><span class="glyphicon glyphicon-remove"></span> {{ 'PRODUCTDETAIL.DELETE' | translate}}</a></td>
