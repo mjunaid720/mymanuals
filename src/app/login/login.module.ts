@@ -14,7 +14,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(httpClient);
 }
 
 @NgModule({
@@ -24,7 +24,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoginRoutingModule,
     FormsModule,
     ReusableModule,
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

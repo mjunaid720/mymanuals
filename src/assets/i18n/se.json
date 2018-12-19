@@ -36,7 +36,9 @@
     "MANUALLINK": "Manuals link",
     "DESCRIPTION": "Description",
     "ADDNOTE": "Add Note",
-    "RATING": "Rating"
+    "RATING": "Rating",
+    "DELETE": "Delete",
+    "LINK": "Link"
   },
   "HEADER": {
     "LOGIN": "logga in",
@@ -50,14 +52,14 @@
     "USERNAME": "Användarnamn",
     "PASSWORD": "Lösenord",
     "LOGINASACONSUMER": "Logga in som konsument",
-    "SIGNUP": "Signup",
-    "LOGIN": "Login"
+    "SIGNUP": "Bli Medlem",
+    "LOGIN": "Logga in"
   },
   "ERROR": {
-    "USERNAME": "Oops, you missed the UserName.",
-    "USERNOTFOUND": "User not found",
-    "PASSWORD": "Enter your password too!",
-    "EMPTYINPUT": "please select all fields"
+    "USERNAME": "Oj, du missade användarnamnet.",
+    "USERNOTFOUND": "Användaren hittades inte",
+    "PASSWORD": "Ange ditt lösenord också!",
+    "EMPTYINPUT": "Vänligen välj alla fält"
   },
   "FOOTER": {
     "COPYRIGHT": "upphovsrätt"

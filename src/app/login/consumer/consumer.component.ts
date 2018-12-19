@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from '../../login.service';
-import {Router} from '@angular/router';
-import {Globals} from '../../globals';
-import {TranslateService} from '@ngx-translate/core';
+import { LoginService } from '../../login.service';
+import { Router } from '@angular/router';
+import { Globals } from '../../globals';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-consumer',
@@ -14,6 +14,7 @@ export class ConsumerComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private globals: Globals, private translate: TranslateService) {
     translate.addLangs(['en', 'se']);
     translate.setDefaultLang(globals.defaultLang);
+    console.log("now", globals.defaultLang);
   }
 
     title = 'demo';

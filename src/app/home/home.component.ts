@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadCategories(){
-    let obs =  this.http.get('http://localhost:8080/api/category');
+    let obs =  this.http.get('http://localhost:8080/api/system-admin/categories');
     obs.subscribe((x)=> {
       console.log(x);
       this.categories = x;
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   loadProdudts(event){
 
-    this.productUrl = 'http://localhost:8080/api/product/category/' + this.category;
+    this.productUrl = 'http://localhost:8080/api/public/products/category/' + this.category;
     let obs = this.http.get(this.productUrl);
     obs.subscribe((x) => {
       console.log(x);

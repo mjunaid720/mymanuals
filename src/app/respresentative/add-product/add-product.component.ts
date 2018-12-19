@@ -128,7 +128,7 @@ export class AddProductComponent implements OnInit {
     } else if (reqPrord['name'] == '' || reqPrord['model'] == '') {
       this.error = 2;
     } else {
-      const obs = this.http.post('http://localhost:8080/api/product', reqPrord,{
+      const obs = this.http.post('http://localhost:8080/api/representative/product', reqPrord,{
         headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
       });
       obs.subscribe((x) => {
@@ -214,7 +214,7 @@ export class AddProductComponent implements OnInit {
   getProducts(categoryId) {
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    const obs = this.http.get('http://localhost:8080/api/product/category/' + categoryId);
+    const obs = this.http.get('http://localhost:8080/api/public/products/category/' + categoryId);
     obs.subscribe((x) => {
       this.productList = x;
       console.log(this.productList);
@@ -237,7 +237,7 @@ export class AddProductComponent implements OnInit {
     // const data = localStorage.getItem('data');
     // const prsData = JSON.parse(data);
     let scope = this;
-    const obs = this.http.get('http://localhost:8080/api/category', {
+    const obs = this.http.get('http://localhost:8080/api/system-admin/categories', {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
     obs.subscribe((x) => {

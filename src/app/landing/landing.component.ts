@@ -19,7 +19,7 @@ export class LandingComponent implements OnInit {
   }
 
   getLatestProducts() {
-    const obs = this.http.get('http://localhost:8080/api/product/latest', {
+    const obs = this.http.get('http://localhost:8080/api/public/products/latest', {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
     obs.subscribe((products) =>

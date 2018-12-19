@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
       });
       this.glob = globals;
       translate.addLangs(['en', 'se']);
-      translate.setDefaultLang(this.glob .defaultLang);
+      translate.setDefaultLang(this.glob.defaultLang);
       console.log('in header ', this.glob);
   }
 

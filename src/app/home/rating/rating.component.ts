@@ -32,7 +32,7 @@ export class RatingComponent implements OnInit {
     const prsData = JSON.parse(data);
     console.log(prsData);
     if (!this.isEmpty(prsData)) {
-      let obs =  this.http.post('http://localhost:8080/api/product/rating', {"manualId": itemId, "rating": rating},
+      let obs =  this.http.post('http://localhost:8080/api/consumer/product/manual/rating', {"manualId": itemId, "rating": rating},
       {
         headers: new HttpHeaders()
           .set('Authorization', prsData.token)

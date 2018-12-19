@@ -19,7 +19,7 @@ export class SearchresultComponent implements OnInit {
    searchProduct(){
        console.log("serwer");
    this.search = this.router.snapshot.paramMap.get("id");
-   this.url = "http://localhost:8080/api/product?search="+this.search;
+   this.url = "http://localhost:8080/api/public/products?search="+this.search;
    let obs = this.http.get(this.url);
    obs.subscribe((x)=>{
      this.products = x;

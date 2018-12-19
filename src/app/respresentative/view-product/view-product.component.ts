@@ -18,7 +18,7 @@ export class ViewProductComponent implements OnInit {
   }
 
   loadProdudtsWithIntrests() {
-    this.productUrl = 'http://localhost:8080/api/product/selection';
+    this.productUrl = 'http://localhost:8080/api/representative/products/selection';
     let scope = this;
     let header = new HttpHeaders();
     let data = localStorage.getItem('data');

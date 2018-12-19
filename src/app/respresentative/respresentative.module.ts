@@ -7,9 +7,10 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { ViewManualRecordComponent } from './view-manual-record/view-manual-record.component';
 
 @NgModule({
-  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent],
+  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent, ViewManualRecordComponent],
   imports: [
     CommonModule,
     RespresentativeRoutingModule,

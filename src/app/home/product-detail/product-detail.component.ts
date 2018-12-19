@@ -33,7 +33,7 @@ export class ProductDetailComponent implements OnInit {
   private _album = [];
   ratingClicked: number;
   itemIdRatingClicked: string;
-  noteModel ={};
+  noteModel = {};
 
   ngOnInit() {
   }
@@ -86,14 +86,14 @@ export class ProductDetailComponent implements OnInit {
     // this.proDetail = data;
     let obs;
     if (token == '' || prsData.role == 'rep' || prsData.role == 'company') {
-      obs =  this.http.get('http://localhost:8080/api/product/' + id, {
+      obs =  this.http.get('http://localhost:8080/api/public/product/' + id, {
         headers: new HttpHeaders()
           // .set('Authorization', token)
       });
     } else {
-      obs =  this.http.get('http://localhost:8080/api/product/' + id, {
+      obs =  this.http.get('http://localhost:8080/api/public/product/' + id, {
         headers: new HttpHeaders()
-          .set('Authorization', token)
+        //  .set('Authorization', token)
       });
     }
 
@@ -183,7 +183,7 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  addNote(model:any){
+  addNote(model:any) {
     console.log(model);
     this.noteModel = {
       "manualId": model.id,
@@ -200,6 +200,14 @@ export class ProductDetailComponent implements OnInit {
        
       });
     }
+  }
+
+  addCount(manual) {
+    // here we add manual
+    let obs =  this.http.get('http://localhost:8080/api/public/product/manual/view/' + manual.id);
+    obs.subscribe((x) => {
+
+    });
   }
 
 }

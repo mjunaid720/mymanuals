@@ -31,7 +31,7 @@ export class AddrepresentativeComponent implements OnInit {
 
 
       // headers = headers.set('Authorization', prsData.token);
-      let obs = this.http.post('http://localhost:8080/api/representative', this.rep,{
+      let obs = this.http.post('http://localhost:8080/api/company/representative', this.rep,{
           headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
       });
       obs.subscribe((x) => {
@@ -54,7 +54,7 @@ export class AddrepresentativeComponent implements OnInit {
     getRepresentative (){
         let data = localStorage.getItem('data');
         let prsData = JSON.parse(data);
-        let obs = this.http.get('http://localhost:8080/api/representative', {
+        let obs = this.http.get('http://localhost:8080/api/company/representatives', {
             headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
         });
         obs.subscribe((x) => {

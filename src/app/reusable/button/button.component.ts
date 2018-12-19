@@ -10,7 +10,7 @@ import { ProductDetailComponent } from '../../home/product-detail/product-detail
 export class ButtonComponent implements OnInit  {
   @Input() status: boolean;
   @Input() productId: number;
-  url: string = 'http://localhost:8080/api/product/badge';
+  url: string = 'http://localhost:8080/api/consumer/product/badge';
   obj = {
     productId: 0,
     badge : false

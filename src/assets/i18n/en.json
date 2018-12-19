@@ -36,7 +36,9 @@
     "MANUALLINK": "Manual link",
     "DESCRIPTION": "Description",
     "ADDNOTE": "Add Note",
-    "RATING": "Rating"
+    "RATING": "Rating",
+    "DELETE": "Delete",
+    "LINK": "Link"
   },
   "HEADER": {
     "LOGIN": "Login in",
