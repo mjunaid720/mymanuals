@@ -10,9 +10,10 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { ViewManualRecordComponent } from './view-manual-record/view-manual-record.component';
 import { SendEmailsToAllComponent } from './send-emails-to-all/send-emails-to-all.component';
 import {ReusableModule} from '../reusable/reusable.module';
+import { ViewServiceProviderComponent } from './view-service-provider/view-service-provider.component';
 
 @NgModule({
-  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent, ViewManualRecordComponent, SendEmailsToAllComponent],
+  declarations: [AddProductComponent, HeaderComponent, FooterComponent, ViewProductComponent, ViewManualRecordComponent, SendEmailsToAllComponent, ViewServiceProviderComponent],
   imports: [
     CommonModule,
     RespresentativeRoutingModule,
