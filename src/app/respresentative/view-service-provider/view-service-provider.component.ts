@@ -38,7 +38,7 @@ export class ViewServiceProviderComponent implements OnInit {
       "authorization": true
     };
 
-    this.productUrl = 'http://localhost:8080/api/representative/service-providers';
+    this.productUrl = 'http://localhost:8080/api/representative/service-provider/authorization';
     let scope = this;
     let header = new HttpHeaders();
     let data = localStorage.getItem('data');
@@ -47,8 +47,8 @@ export class ViewServiceProviderComponent implements OnInit {
       headers: new HttpHeaders().set('Authorization', prsData.token)
     });
     obs.subscribe((x) => {
-      console.log(x);
-      this.servicePro[d.id] = x;
+      // console.log(x);
+      scope.loadServiceProviders();
     });
   }
 
@@ -58,7 +58,7 @@ export class ViewServiceProviderComponent implements OnInit {
       "authorization": false
     };
 
-    this.productUrl = 'http://localhost:8080/api/representative/service-providers';
+    this.productUrl = 'http://localhost:8080/api/representative/service-provider/authorization';
     let scope = this;
     let header = new HttpHeaders();
     let data = localStorage.getItem('data');
@@ -67,8 +67,7 @@ export class ViewServiceProviderComponent implements OnInit {
       headers: new HttpHeaders().set('Authorization', prsData.token)
     });
     obs.subscribe((x) => {
-      console.log(x);
-      this.servicePro[d.id] = x;
+      scope.loadServiceProviders();
     });
   }
 

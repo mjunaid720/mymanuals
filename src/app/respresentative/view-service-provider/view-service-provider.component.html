@@ -24,8 +24,8 @@
         {{pro.username}}
       </td>
       <td>
-        <a (click)="allowThisSP(pro)" class="btn btn-success" *ngIf="!pro.authentication">Allowed</a>
-        <a (click)="revokeThisSP(pro)" class="btn btn-danger" *ngIf="pro.authentication">Revoke</a>
+        <a (click)="allowThisSP(pro)" class="btn btn-success" *ngIf="!pro.authorization">Allow</a>
+        <a (click)="revokeThisSP(pro)" class="btn btn-danger" *ngIf="pro.authorization">Revoke</a>
       </td>
 
 
