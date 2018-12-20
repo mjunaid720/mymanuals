@@ -92,9 +92,9 @@ export class ProductDetailComponent implements OnInit {
           // .set('Authorization', token)
       });
     } else {
-      obs =  this.http.get('http://localhost:8080/api/public/product/' + id, {
+      obs =  this.http.get('http://localhost:8080/api/consumer/product/' + id, {
         headers: new HttpHeaders()
-        //  .set('Authorization', token)
+          .set('Authorization', token)
       });
     }
 
