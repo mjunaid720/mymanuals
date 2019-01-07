@@ -10,9 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { EmailComponent } from './email/email.component';
 import { ServiceprovideremailComponent } from './serviceprovideremail/serviceprovideremail.component';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
 
 @NgModule({
-  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent, LogoutComponent, EmailComponent, ServiceprovideremailComponent],
+  declarations: [ReusableComponent, ButtonComponent, SearchComponent, SearchresultComponent, LogoutComponent, EmailComponent, ServiceprovideremailComponent, AdvertisementComponent],
   imports: [
     CommonModule,
     ReusableRoutingModule,

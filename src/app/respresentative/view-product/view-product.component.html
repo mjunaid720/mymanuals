@@ -12,6 +12,7 @@
       <th>Image</th>
       <th>Manual in PDF</th>
       <th>Interested</th>
+      <th>Views</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -31,6 +32,9 @@
       <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>download</a></span></td>
     <td>
       <span>{{pro.selection}}</span>
+    </td>
+    <td>
+      <span>{{pro.views}}</span>
     </td>
     <td>
       <a href="/rep/viewmanual/{{pro.id}}" class="btn btn-default">View Detail</a>

@@ -16,7 +16,9 @@ export class AddServiceProviderComponent implements OnInit {
     username : '',
     password : '',
     name : '',
-    authorization : true
+    authorization : true,
+    phone: '',
+    email: ''
   };
 
   addRepresentative () {
@@ -45,7 +47,9 @@ export class AddServiceProviderComponent implements OnInit {
       username : '',
       password : '',
       name : '',
-      authorization : true
+      authorization : true,
+      phone : '',
+      email: ''
     };
   }
 
