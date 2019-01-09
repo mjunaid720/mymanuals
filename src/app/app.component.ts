@@ -8,8 +8,10 @@ import { Globals} from './globals';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'mymanual';
+  contentmodel:"dsfs";
   constructor(private gloals: Globals) {
     const header = new HttpHeaders();
     const data = localStorage.getItem('data');
