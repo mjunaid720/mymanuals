@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ReusableRoutingModule } from './reusable-routing.module';
 import { ReusableComponent } from './reusable.component';
 import { ButtonComponent } from './button/button.component';
@@ -24,7 +23,8 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
     ButtonComponent,
     LogoutComponent,
     EmailComponent,
-    ServiceprovideremailComponent
+    ServiceprovideremailComponent,
+    AdvertisementComponent
 ]
 })
 export class ReusableModule { }

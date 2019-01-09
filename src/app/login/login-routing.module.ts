@@ -5,6 +5,7 @@ import { ConsumerComponent } from './consumer/consumer.component';
 import { RepresentativeComponent } from './representative/representative.component';
 import { CompanyComponent } from './company/company.component';
 import {ServiceProviderComponent} from './service-provider/service-provider.component';
+import {AdManagerComponent} from './ad-manager/ad-manager.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
     {
       path: 'sp',
       component: ServiceProviderComponent
+    },
+    {
+      path: 'ad-manager',
+      component: AdManagerComponent
     }
 ];
 

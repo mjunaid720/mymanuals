@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
          // this.displayPage = 2;
       } else if (l == 'sp') {
         this.router.navigate(['login/sp']);
+      } else if (l == 'ad-manager') {
+        this.router.navigate(['login/ad-manager']);
       } else {
          // this.displayPage = 3;
          this.router.navigate(['login/consumer']);

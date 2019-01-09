@@ -13,8 +13,11 @@ export class LoginService {
   }
 
   loginAsCompany(user) {
-      console.log(' in service' , user);
       return this.http.put(this.url + 'company/login', user, {headers: this.headers()});
+  }
+
+  loginAsAdManager(user) {
+      return this.http.put(this.url + 'ad-agent/login', user, {headers: this.headers()});
   }
 
   loginAsConsumer(user) {

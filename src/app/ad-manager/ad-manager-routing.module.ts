@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchresultComponent } from './searchresult/searchresult.component';
+import {CreateAdComponent} from './create-ad/create-ad.component';
 
 const routes: Routes = [
   {
-    path: 'search/:id',
-    component: SearchresultComponent
+    path: '',
+    component: CreateAdComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ReusableRoutingModule { }
+export class AdManagerRoutingModule { }

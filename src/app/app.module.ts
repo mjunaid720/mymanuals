@@ -43,6 +43,10 @@ const routes: Routes = [
     loadChildren: './service-provider/service-provider.module#ServiceProviderModule'
   },
   {
+    path: 'admanager',
+    loadChildren: './ad-manager/ad-manager.module#AdManagerModule'
+  },
+  {
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },

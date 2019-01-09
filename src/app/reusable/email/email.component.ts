@@ -18,18 +18,16 @@ export class EmailComponent implements OnInit {
   }
 
   send(model:any) {
-    console.log(model);
     let scope = this;
-
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
     let obs =  this.http.post('http://localhost:8080/api/representative/email', this.model,{
-        headers: new HttpHeaders().set('Authorization', prsData.token)
-      });
-      obs.subscribe((x) => {
-        console.log(x);
-        scope.emailSent = true;
-      });
+      headers: new HttpHeaders().set('Authorization', prsData.token)
+    });
+    obs.subscribe((x) => {
+      console.log(x);
+      scope.emailSent = true;
+    });
   }
 
 

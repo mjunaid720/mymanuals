@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SendEmailComponent } from './send-email.component';
+import { AdManagerComponent } from './ad-manager.component';
 
-describe('SencEmailComponent', () => {
-  let component: SendEmailComponent;
-  let fixture: ComponentFixture<SendEmailComponent>;
+describe('AdManagerComponent', () => {
+  let component: AdManagerComponent;
+  let fixture: ComponentFixture<AdManagerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SendEmailComponent ]
+      declarations: [ AdManagerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SendEmailComponent);
+    fixture = TestBed.createComponent(AdManagerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
