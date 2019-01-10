@@ -12,9 +12,22 @@ import { Globals } from '../../globals';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  productId : any;
+  proDetail: any = [];
+  imageToShow = 0;
+  repPer: boolean = false;
+  likedBtn: boolean = false;
+  likeBtnStatus = false;
+  private _album = [];
+  ratingClicked: number;
+  itemIdRatingClicked: string;
+  noteModel = {};
 
   constructor(private http: HttpClient, private router: ActivatedRoute, private _lightbox: Lightbox, private translate: TranslateService, private global: Globals) {
+
+
     let id = router.snapshot.paramMap.get("id");
+    this.productId = id;
     this.getProductDetail(id);
     this.checkRepPermission();
     this.checkConsumerPermission();
@@ -26,15 +39,6 @@ export class ProductDetailComponent implements OnInit {
    // translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
 
-  proDetail: any = [];
-  imageToShow = 0;
-  repPer: boolean = false;
-  likedBtn: boolean = false;
-  likeBtnStatus = false;
-  private _album = [];
-  ratingClicked: number;
-  itemIdRatingClicked: string;
-  noteModel = {};
 
   ngOnInit() {
   }
@@ -184,8 +188,16 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  strip(html)
+  {
+    // var tmp = document.createElement("DIV");
+    // tmp.innerHTML = html;
+    return html.replace(/<(?:.|\n)*?>/gm, '');
+  }
+
   addNote(model:any) {
     console.log(model);
+    let scope = this;
     this.noteModel = {
       "manualId": model.id,
       "note": model.note
@@ -198,7 +210,7 @@ export class ProductDetailComponent implements OnInit {
         headers: new HttpHeaders().set('Authorization', prsData.token)
       });
       obs.subscribe((x) => {
-       
+        scope.getProductDetail(scope.productId);
       });
     }
   }

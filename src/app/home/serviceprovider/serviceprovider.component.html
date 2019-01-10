@@ -1,0 +1,21 @@
+
+<table class="table table-striped custab">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Company</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let m of serviceProviders">
+    <td>{{m.name}}</td>
+    <td>{{m.email}}</td>
+    <td>
+      {{m.phone}}
+    </td>
+    <td>
+      {{m.company}}
+    </td>
+  </tr>
+</table>

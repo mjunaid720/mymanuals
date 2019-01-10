@@ -17,6 +17,8 @@
   <!--<label for="description">Description :</label>-->
   <!--<input type="text" class="form-control" id="description" [(ngModel)]="rep.description">-->
   <!--</div>-->
-  <button type="submit" class="btn btn-primary" (click)="updateServiceProvider()">Add Representative</button>
+  <button type="submit" class="btn btn-primary" (click)="updateServiceProvider()">Update Profile</button>
   <br />
+  <span *ngIf="msg == 1" style="color: red">Please fill all fields</span>
+  <span *ngIf="msg == 2" style="color: green">Profile updated successfully</span>
 </div>

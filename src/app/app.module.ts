@@ -15,6 +15,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { IgnoreHtmlPipe } from './ignore-html.pipe';
 
 const routes: Routes = [
   {
@@ -79,7 +80,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    IgnoreHtmlPipe
   ],
   imports: [
     BrowserModule,
