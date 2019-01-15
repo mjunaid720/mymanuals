@@ -8,10 +8,14 @@
   <div class="row">
     <div class="col-md-8">
       <label for="select_categroy">{{ 'HOME.SELECTCATEGORY' | translate}} :</label>
-      <select class="form-control" id="select_categroy"  [(ngModel)]="category" (change)="loadProdudts($event)">
-        <option *ngFor="let cat of categories" [value]="cat.id">
-          {{cat.name}}
-        </option>
+      <!--<select class="form-control" id="select_categroy"  [(ngModel)]="category" (change)="loadProdudts($event)">-->
+        <!--&lt;!&ndash;<option *ngFor="let cat of categories" [value]="cat.id">&ndash;&gt;-->
+          <!--&lt;!&ndash;{{cat.name}}&ndash;&gt;-->
+        <!--&lt;!&ndash;</option>&ndash;&gt;-->
+      <!--</select>-->
+      <select class="form-control" id="select_categroy" [(ngModel)]="category" (change)="loadProdudts($event)">
+        <option value="1">Cat1</option>
+        <option value="2">cat2</option>
       </select>
     </div>
     <div class="col-md-4">

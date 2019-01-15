@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ServiceprovideremailComponent implements OnInit {
 
   emailSent= false;
+  errorText = '';
   model = {
     "subject" : '',
     "body" : ''
@@ -27,8 +28,17 @@ export class ServiceprovideremailComponent implements OnInit {
         headers: new HttpHeaders().set('Authorization', prsData.token)
     });
     obs.subscribe((x) => {
-      console.log(x);
-      scope.emailSent = true;
+      console.log('sfs', x);
+      if (x.hasOwnProperty('error')) {
+
+      } else if (x.hasOwnProperty('ddd')) {
+        scope.emailSent = true;
+      }
+      // scope.emailSent = true;
+    }, (error) => {
+      console.log(error);
+      scope.errorText = 'service provider is not authorized to send email';
+      scope.emailSent = false;
     });
   }
 

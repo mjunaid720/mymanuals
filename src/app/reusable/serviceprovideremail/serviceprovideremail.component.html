@@ -23,5 +23,9 @@
 <div class="alert alert-success" *ngIf="emailSent">
   <strong>Success!</strong> Email Successfully sent.
 </div>
+<div class="alert alert-danger" *ngIf="errorText != ''">
+  <strong>Error!</strong> {{errorText}}
+</div>
+
     
       

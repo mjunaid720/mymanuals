@@ -45,7 +45,7 @@
       <div class="col-md-3" *ngFor="let item of productList">
         <div class="card profile-card-5">
           <div class="card-img-block" *ngIf="item.primaryImage.url != ''" style="max-width: 327px; max-height: 327px; min-width: 327px; min-height: 327px;">
-            <img class="card-img-top" src="{{item.primaryImage.url}}" >
+            <img class="card-img-top" style="max-height: 300px;" src="{{item.primaryImage.url}}" >
           </div>
           <div class="card-body pt-0">
             <h5 class="card-title">{{item.name}}</h5>

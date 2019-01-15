@@ -14,21 +14,20 @@
             <li class="nav-item active" >
               <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.PRODUCTLISTING' | translate}}</a>
             </li>
-              <li class="nav-item active" (click)="loginAs('consumer')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.LOGIN' | translate}} </a>
-              </li>
-              <li class="nav-item active" (click)="loginAs('representative')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.REP' | translate}} </a>
-              </li>
-              <li class="nav-item active" (click)="loginAs('sp')">
-                <a class="nav-link" style="text-decoration: underline; cursor: pointer">sp </a>
-              </li>
-              <li class="nav-item active" (click)="loginAs('ad-manager')">
-                <a class="nav-link" style="text-decoration: underline; cursor: pointer">am </a>
-              </li>
-              <li class="nav-item active" (click)="loginAs('company')">
-                  <a class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.COMPANY' | translate}} </a>
-              </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login as
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button" (click)="loginAs('consumer')">{{ 'HEADER.LOGIN' | translate}}</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('representative')">{{ 'HEADER.REP' | translate}}</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('sp')">Service Provider</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('ad-manager')">Ad Manager</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('company')">Company</button>
+                </div>
+              </div>
+            </li>
           </ul>
       </div>
     <div *ngIf="glob.hasSession">
@@ -46,8 +45,6 @@
            <app-logout></app-logout>
         </li>
       </ul>
-
-
     </div>
     <div>
       <ul class="navbar-nav">

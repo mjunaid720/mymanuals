@@ -72,5 +72,31 @@
       <app-serviceprovider [productId]="proDetail.id"></app-serviceprovider>
     </div>
   </div>
+  <br />
+  <h1>Comments</h1>
 
+
+  <span>
+    <div class="media comment-box" *ngFor="let comment of proDetail.comments">
+      <div class="media-left">
+        <a href="#">
+          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{comment.consumerName}}</h4>
+        <p>{{comment.text}}</p>
+      </div>
+    </div>
+  </span>
+
+
+  <h4>Add new Comment</h4>
+  <!--<span>you must be login to add new comment</span>-->
+  <div class="media comment-box" style="margin-top:10px !important;">
+    <div class="media-body">
+      <textarea style="height: 100%; width: 100%" [(ngModel)]="newCommentText" #addNewCommentDetail></textarea>
+    </div>
+    <p><input type="button" class="btn btn-default" value="Add Comment" (click)="addNewComment(proDetail.id)"></p>
+  </div>
 </div>

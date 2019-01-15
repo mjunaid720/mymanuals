@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Lightbox } from 'ngx-lightbox';
@@ -12,6 +12,8 @@ import { Globals } from '../../globals';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+
+  @ViewChild('addNewCommentDetail') commentElementRef: ElementRef;
   productId : any;
   proDetail: any = [];
   imageToShow = 0;
@@ -22,6 +24,7 @@ export class ProductDetailComponent implements OnInit {
   ratingClicked: number;
   itemIdRatingClicked: string;
   noteModel = {};
+  newCommentText : string = '';
 
   constructor(private http: HttpClient, private router: ActivatedRoute, private _lightbox: Lightbox, private translate: TranslateService, private global: Globals) {
 
@@ -223,4 +226,21 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  addNewComment(productId) {
+    const scope = this;
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    const commentData = {
+      text: this.newCommentText,
+      productId: productId
+    };
+    const obs =  this.http.post('http://localhost:8080/api/consumer/product/comment', commentData,{
+      headers: new HttpHeaders().set('Authorization', prsData.token)
+    });
+    obs.subscribe((x) => {
+      scope.proDetail = x;
+      scope.commentElementRef.nativeElement.focus();
+      scope.newCommentText = '';
+    });
+  }
 }
