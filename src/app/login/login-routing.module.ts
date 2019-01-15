@@ -4,6 +4,7 @@ import {LoginComponent} from './login.component';
 import { ConsumerComponent } from './consumer/consumer.component';
 import { RepresentativeComponent } from './representative/representative.component';
 import { CompanyComponent } from './company/company.component';
+import { SysAdminComponent } from './sys-admin/sys-admin.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'admin',
         component: CompanyComponent
+    },
+    {
+        path: 'sysadmin',
+        component: SysAdminComponent
     }
 ];
 

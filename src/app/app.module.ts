@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: './respresentative/respresentative.module#RespresentativeModule'
   },
   {
+    path: 'sysAdmin',
+    loadChildren: './system-admin/system-admin.module#SystemAdminModule'
+  },
+  {
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },

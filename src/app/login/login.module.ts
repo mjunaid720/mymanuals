@@ -11,13 +11,14 @@ import { CompanyComponent } from './company/company.component';
 import { ReusableModule } from '../reusable/reusable.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { SysAdminComponent } from './sys-admin/sys-admin.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
 @NgModule({
-  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent],
+  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent, SysAdminComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
