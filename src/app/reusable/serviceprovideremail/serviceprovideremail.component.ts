@@ -19,24 +19,16 @@ export class ServiceprovideremailComponent implements OnInit {
   ngOnInit() {
   }
   send(model:any){
-    console.log(model);
     let scope = this;
-
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
     let obs =  this.http.post('http://localhost:8080/api/service-provider/email', this.model,{
         headers: new HttpHeaders().set('Authorization', prsData.token)
     });
     obs.subscribe((x) => {
-      console.log('sfs', x);
-      if (x.hasOwnProperty('error')) {
-
-      } else if (x.hasOwnProperty('ddd')) {
-        scope.emailSent = true;
-      }
+      scope.emailSent = true;
       // scope.emailSent = true;
     }, (error) => {
-      console.log(error);
       scope.errorText = 'service provider is not authorized to send email';
       scope.emailSent = false;
     });

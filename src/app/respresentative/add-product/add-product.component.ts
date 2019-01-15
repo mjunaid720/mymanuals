@@ -227,9 +227,7 @@ export class AddProductComponent implements OnInit {
     this.product['secondaryImages'] = [];
     this.product['manuals'] = [];
     this.product['primaryImage'] = {};
-
     this.imageToUpload = [];
-
     this.pdfArray = [];
   }
 
