@@ -35,4 +35,8 @@ export class LoginService {
   headers() {
       return new HttpHeaders().set('Content-Type', 'application/json');
   }
+
+  loginAsSysAdmin(user) {
+    return this.http.put(this.url + 'system-admin/login', user);
+  }
 }

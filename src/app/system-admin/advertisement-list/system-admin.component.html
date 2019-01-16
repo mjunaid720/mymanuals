@@ -1,0 +1,30 @@
+
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+  <br />
+  <h2>Advertisement List</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th>Views</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let adv of advertisementList" >
+      <td>
+        <a>
+          {{adv.title}}
+        </a>
+      </td>
+      <td>
+        <span *ngIf="adv.imageUrl != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{adv.imageUrl}}" data-holder-rendered="true"></span>
+      </td>
+      <td>
+        <span>{{adv.views}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

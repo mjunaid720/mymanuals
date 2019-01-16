@@ -36,7 +36,7 @@
         <tr>
           <th style="max-width: 70px">{{ 'PRODUCTDETAIL.MANUALLINK' | translate}}</th>
           <th style="max-width: 93px">{{ 'PRODUCTDETAIL.DESCRIPTION' | translate}}</th>
-          <th *ngIf="likedBtn" style="min-width: 311px">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
+          <th *ngIf="likedBtn" style="min-width: 311px" >{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
           <th>{{ 'NOTES' | translate}}</th>
           <th>{{ 'PRODUCTDETAIL.RATING' | translate}}</th>
           <th class="text-center" *ngIf="repPer">Action</th>
@@ -47,7 +47,7 @@
           <td>{{m.description}}</td>
 
 
-          <td style="max-width: 250px;" *ngIf="likedBtn" >
+          <td style="max-width: 250px;" *ngIf="likedBtn">
               <div [froalaEditor] [(froalaModel)]="m.note"></div>
             <button class="btn btn-success" (click)="addNote(m)">{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</button>
             <br>
@@ -92,8 +92,8 @@
 
 
   <h4>Add new Comment</h4>
-  <!--<span>you must be login to add new comment</span>-->
-  <div class="media comment-box" style="margin-top:10px !important;">
+  <span>you must login to add new comment</span>
+  <div *ngIf="likedBtn" class="media comment-box" style="margin-top:10px !important;">
     <div class="media-body">
       <textarea style="height: 100%; width: 100%" [(ngModel)]="newCommentText" #addNewCommentDetail></textarea>
     </div>

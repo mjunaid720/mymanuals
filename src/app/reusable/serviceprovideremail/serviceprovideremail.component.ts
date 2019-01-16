@@ -18,6 +18,7 @@ export class ServiceprovideremailComponent implements OnInit {
 
   ngOnInit() {
   }
+
   send(model:any){
     let scope = this;
     const data = localStorage.getItem('data');

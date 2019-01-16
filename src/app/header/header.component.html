@@ -10,21 +10,22 @@
 
       </ul>
       <div *ngIf="!glob.hasSession" >
-        <ul class="navbar-nav">
+        <ul class="navbar-nav topmenulist">
             <li class="nav-item active" >
-              <a href="/home" class="nav-link" style="text-decoration: underline; cursor: pointer">{{ 'HEADER.PRODUCTLISTING' | translate}}</a>
+              <a href="/home" class="nav-link btn btn-primary" style="cursor: pointer; max-height: 39px; color: white;">{{ 'HEADER.PRODUCTLISTING' | translate}}</a>
             </li>
             <li>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Login as
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ 'HEADER.LOGINAS' | translate}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <button class="dropdown-item" type="button" (click)="loginAs('consumer')">{{ 'HEADER.LOGIN' | translate}}</button>
                   <button class="dropdown-item" type="button" (click)="loginAs('representative')">{{ 'HEADER.REP' | translate}}</button>
-                  <button class="dropdown-item" type="button" (click)="loginAs('sp')">Service Provider</button>
-                  <button class="dropdown-item" type="button" (click)="loginAs('ad-manager')">Ad Manager</button>
-                  <button class="dropdown-item" type="button" (click)="loginAs('company')">Company</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('sp')">{{ 'HEADER.SP' | translate}}</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('ad-manager')">{{ 'HEADER.AM' | translate}}</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('company')">{{ 'HEADER.COMPANY' | translate}}</button>
+                  <button class="dropdown-item" type="button" (click)="loginAs('system-admin')">{{ 'HEADER.SYSTEMADMIN' | translate}}</button>
                 </div>
               </div>
             </li>

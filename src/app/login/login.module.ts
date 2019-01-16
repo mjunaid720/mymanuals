@@ -13,13 +13,14 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ServiceProviderComponent } from './service-provider/service-provider.component';
 import { AdManagerComponent } from './ad-manager/ad-manager.component';
+import { SysAdminComponent} from './sys-admin/sys-admin.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
 @NgModule({
-  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent, ServiceProviderComponent, AdManagerComponent],
+  declarations: [LoginComponent, ConsumerComponent, RepresentativeComponent, CompanyComponent, ServiceProviderComponent, AdManagerComponent, SysAdminComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,

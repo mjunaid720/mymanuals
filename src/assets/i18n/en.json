@@ -52,12 +52,15 @@
     "LINK": "Link"
   },
   "HEADER": {
-    "LOGIN": "Login in",
-    "REP": "rep",
-    "COMPANY": "company",
+    "LOGIN": "Consumer",
+    "REP": "Representative",
+    "COMPANY": "Company",
     "PRODUCTLISTING": "Product Listing",
     "PROFILE": "Profile",
-    "LOGINAS": "Login as "
+    "LOGINAS": "Login as ",
+    "SP": "Service Provider",
+    "AM": "Ad Manager",
+    "SYSTEMADMIN": "System Admin"
   },
   "LOGIN": {
     "USERNAME": "Username",

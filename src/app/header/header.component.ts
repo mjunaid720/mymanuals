@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['login/sp']);
       } else if (l == 'ad-manager') {
         this.router.navigate(['login/ad-manager']);
+      } else if (l == 'system-admin') {
+        this.router.navigate(['login/sysAdmin']);
       } else {
          // this.displayPage = 3;
          this.router.navigate(['login/consumer']);

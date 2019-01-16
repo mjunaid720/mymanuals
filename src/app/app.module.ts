@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: './signup/signup.module#SignupModule'
   },
   {
+    path: 'sysAdmin',
+    loadChildren: './system-admin/system-admin.module#SystemAdminModule'
+  },
+  {
     path: 'company',
     loadChildren: './company/company.module#CompanyModule',
     canActivate: [AuthGuard]

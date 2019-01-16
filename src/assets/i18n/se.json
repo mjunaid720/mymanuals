@@ -52,12 +52,15 @@
     "LINK": "Länk"
   },
   "HEADER": {
-    "LOGIN": "logga in",
-    "REP": "rep",
+    "LOGIN": "Konsument",
+    "REP": "representativ",
     "COMPANY": "företag",
     "PRODUCTLISTING": "Produktlista",
     "PROFILE": "Profil",
-    "LOGINAS": "Logga in som "
+    "LOGINAS": "Logga in som ",
+    "SP": "Tjänsteleverantör",
+    "AM": "Annonshanteraren",
+    "SYSTEMADMIN": "Systemadministratör"
   },
   "LOGIN": {
     "USERNAME": "Användarnamn",

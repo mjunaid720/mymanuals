@@ -8,7 +8,7 @@
           <br />
 <div class="card rounded-0">
   <div class="card-header">
-    <h3 class="mb-0">Login as a Representative</h3>
+    <h3 class="mb-0">Login as a System Admin</h3>
   </div>
   <div class="card-body">
 <div class="form-group">
@@ -30,7 +30,7 @@
 <div style="color: red" *ngIf="error == 'all'" [className]="error == 'all' ? 'show' : 'hide'">please select all fields</div>
 <div style="color: red" *ngIf="error == 'notfound'" [className]="error == 'notfound' ? 'show' : 'hide'">User not found</div>
 <br />
-<button type="submit" class="btn btn-secondary btn-lg float-right" id="btnLogin" (click)='clickMe()'>Login</button>
+<button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)='clickMe()'>Login</button>
   </div>
 </div>
         </div>
