@@ -12,7 +12,7 @@ export class StatComponent implements OnInit {
 
   stats = {};
   ngOnInit() {
-    this.getStats();
+  //  this.getStats();
   }
 
   isEmpty(obj) {
