@@ -34,7 +34,8 @@ export class ProductDetailComponent implements OnInit {
   ratingClicked: number;
   itemIdRatingClicked: string;
   noteModel = {};
-
+  role ="";
+  proUrl ="";
   ngOnInit() {
   }
 
@@ -85,6 +86,7 @@ export class ProductDetailComponent implements OnInit {
     // }
     // this.proDetail = data;
     let obs;
+    this.role = prsData.role;
     if (token == '' || prsData.role == 'rep' || prsData.role == 'company') {
       obs =  this.http.get('http://localhost:8080/api/public/product/' + id, {
         headers: new HttpHeaders()
@@ -169,6 +171,8 @@ export class ProductDetailComponent implements OnInit {
       this.ratingClicked = event.rating;
       this.itemIdRatingClicked = item.company;
     }
+ 
+ 
   }
 
 
@@ -208,6 +212,20 @@ export class ProductDetailComponent implements OnInit {
     obs.subscribe((x) => {
 
     });
+  }
+
+  makeFeature(id){
+    this.proUrl = "http://localhost:8080/api/system-admin/featured-product/"+id;
+    const data = localStorage.getItem('data');
+    const prsData = JSON.parse(data);
+    if (!this.isEmpty(prsData)) {
+      let obs =  this.http.post(this.proUrl,{
+        headers: new HttpHeaders().set('Authorization', prsData.token)
+      });
+      obs.subscribe((x) => {
+     alert("Successfully done.");
+      });
+  }
   }
 
 }
