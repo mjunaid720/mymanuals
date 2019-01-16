@@ -42,7 +42,7 @@ export class SysAdminComponent implements OnInit {
                     this.globals.hasSession = true;
                     localStorage.setItem('data', JSON.stringify({'token' : x.token, 'username' : this.user.username, 'role' : 'sysAdmin'}));
                   this.globals.sessionObj = {'token' : x.token, 'username' : this.user.username, 'role' : 'sysAdmin'};
-                  this.router.navigate(['/sysAdmin']);
+                  this.router.navigate(['/sysadmin']);
                 } else {
                     this.error = 'notfound';
                 }
