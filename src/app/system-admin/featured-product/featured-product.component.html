@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container" style="max-width: 62% !important;">
+  <br />
+  <h2>Featured Product</h2>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      <th>Image</th>
+      <th>Manual in PDF</th>
+      <th>Interested</th>
+      <th>Views</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <a routerLink="/home/product/{{pro.id}}">
+          {{pro.name}}
+        </a>
+      </td>
+      <td>{{pro.model}}</td>
+      <td>
+
+        <span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>
+      </td>
+      <td>
+        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>download</a></span></td>
+      <td>
+        <span>{{pro.selection}}</span>
+      </td>
+      <td>
+        <span>{{pro.views}}</span>
+      </td>
+      <td>
+        <a href="/rep/viewmanual/{{pro.id}}" class="btn btn-default">View Detail</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

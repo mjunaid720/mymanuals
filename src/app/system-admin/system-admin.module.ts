@@ -7,9 +7,11 @@ import {FormsModule} from '@angular/forms';
 import {ReusableModule} from '../reusable/reusable.module';
 import {HeaderComponent} from './header/header.component';
 import {StatComponent} from './stat/stat.component';
+import { FeaturedProductComponent } from './featured-product/featured-product.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
-  declarations: [SystemAdminComponent, HeaderComponent, StatComponent],
+  declarations: [SystemAdminComponent, HeaderComponent, StatComponent, FeaturedProductComponent, ProductsComponent],
   imports: [
     CommonModule,
     SystemAdminRoutingModule,

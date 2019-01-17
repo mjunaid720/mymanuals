@@ -67,7 +67,8 @@
     "PASSWORD": "Lösenord",
     "LOGINASACONSUMER": "Logga in som konsument",
     "SIGNUP": "Bli Medlem",
-    "LOGIN": "Logga in"
+    "LOGIN": "Logga in",
+    "DETAILLOGIN": "Skapa Mymanual Account"
   },
   "ERROR": {
     "USERNAME": "Oj, du missade användarnamnet.",

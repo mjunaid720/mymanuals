@@ -40,9 +40,22 @@
   <div class="container-fluid">
     <br />
     <br />
-    <h2>{{ 'LANDING.LATESTPRODUCTMANUALS' | translate}}</h2>
+    <h2></h2>
     <div class="row">
-      <div class="col-md-3" *ngFor="let item of productList">
+
+      <div class="col-md-3" *ngIf="featured !=null" >
+        <div class="card profile-card-5" style="background-color: yellow;">
+          <div class="card-img-block" *ngIf="featured.primaryImage.url != ''" style="max-width: 327px; max-height: 327px; min-width: 327px; min-height: 327px;">
+            <img class="card-img-top" style="max-height: 300px;" src="{{featured.primaryImage.url}}" >
+          </div>
+          <div class="card-body pt-0" style="background-color: yellow;">
+            <h5 class="card-title">{{featured.name}}</h5>
+            <p class="card-text">{{featured.model}}</p>
+            <a href="/home/product/{{featured.id}}" class="btn btn-primary">{{ 'LANDING.MORE' | translate}}...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" style="margin-bottom: 20px;" *ngFor="let item of productList.products">
         <div class="card profile-card-5">
           <div class="card-img-block" *ngIf="item.primaryImage.url != ''" style="max-width: 327px; max-height: 327px; min-width: 327px; min-height: 327px;">
             <img class="card-img-top" style="max-height: 300px;" src="{{item.primaryImage.url}}" >
@@ -54,6 +67,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
