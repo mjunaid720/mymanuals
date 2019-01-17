@@ -37,7 +37,7 @@
           <th style="max-width: 70px">{{ 'PRODUCTDETAIL.MANUALLINK' | translate}}</th>
           <th style="max-width: 93px">{{ 'PRODUCTDETAIL.DESCRIPTION' | translate}}</th>
           <th *ngIf="likedBtn" style="min-width: 311px" >{{ 'PRODUCTDETAIL.ADDNOTE' | translate}}</th>
-          <th>{{ 'NOTES' | translate}}</th>
+          <th>{{ 'PRODUCTDETAIL.NOTES' | translate}}</th>
           <th>{{ 'PRODUCTDETAIL.RATING' | translate}}</th>
           <th class="text-center" *ngIf="repPer">Action</th>
         </tr>
@@ -68,13 +68,12 @@
         </tr>
       </table><br />
       <br />
-      <h1 style="clear: both; margin-top: 20px;text-decoration: underline">Service Providers</h1>
+      <h1 style="clear: both; margin-top: 20px;text-decoration: underline">{{ 'PRODUCTDETAIL.SERVICEPROVIDER' | translate}}</h1>
       <app-serviceprovider [productId]="proDetail.id"></app-serviceprovider>
     </div>
   </div>
   <br />
-  <h1>Comments</h1>
-
+  <h1>{{ 'PRODUCTDETAIL.COMMENTS' | translate}}</h1>
 
   <span>
     <div class="media comment-box" *ngFor="let comment of proDetail.comments">
@@ -91,12 +90,12 @@
   </span>
 
 
-  <h4>Add new Comment</h4>
-  <span>you must login to add new comment</span>
+  <h4>{{ 'PRODUCTDETAIL.ADDNEWCOMMENT' | translate}}</h4>
+  <span>{{ 'PRODUCTDETAIL.MUSTLOGIN' | translate}}</span>
   <div *ngIf="likedBtn" class="media comment-box" style="margin-top:10px !important;">
     <div class="media-body">
       <textarea style="height: 100%; width: 100%" [(ngModel)]="newCommentText" #addNewCommentDetail></textarea>
     </div>
-    <p><input type="button" class="btn btn-default" value="Add Comment" (click)="addNewComment(proDetail.id)"></p>
+    <p><input type="button" class="btn btn-default" value="{{ 'PRODUCTDETAIL.ADDCOMMENT' | translate}}" (click)="addNewComment(proDetail.id)"></p>
   </div>
 </div>

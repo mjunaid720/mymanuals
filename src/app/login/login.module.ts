@@ -26,7 +26,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LoginRoutingModule,
     FormsModule,
     ReusableModule,
- 
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

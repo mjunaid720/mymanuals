@@ -35,7 +35,7 @@
     "ERRORMSG": "Snälla Fyll i alla fält"
   },
   "PRODUCT" : {
-    "PRODUCTLIST": "Product List",
+    "PRODUCTLIST": "Produktlista",
     "SELECTCATEGORY": ""
   },
   "PRODUCTDETAIL": {
@@ -49,7 +49,17 @@
     "ADDNOTE": "Lägg till anteckning",
     "RATING": "Betyg",
     "DELETE": "Radera",
-    "LINK": "Länk"
+    "LINK": "Länk",
+    "SERVICEPROVIDER": "Tjänsteleverantör",
+    "NAME": "namn",
+    "EMAIL": "E-post",
+    "PHONE": "Telefon",
+    "COMPANY": "Företag",
+    "COMMENTS": "kommentarer",
+    "ADDNEWCOMMENT": "Lägg till en ny kommentar",
+    "MUSTLOGIN": "du måste logga in för att lägga till en ny kommentar",
+    "ADDCOMMENT": "Lägg till kommentar",
+    "NOTES": "anteckningar"
   },
   "HEADER": {
     "LOGIN": "Konsument",
@@ -60,7 +70,8 @@
     "LOGINAS": "Logga in som ",
     "SP": "Tjänsteleverantör",
     "AM": "Annonshanteraren",
-    "SYSTEMADMIN": "Systemadministratör"
+    "SYSTEMADMIN": "Systemadministratör",
+    "LOGOUT": "Logga ut"
   },
   "LOGIN": {
     "USERNAME": "Användarnamn",
@@ -69,7 +80,12 @@
     "SIGNUP": "Bli Medlem",
     "LOGIN": "Logga in",
     "DETAILLOGIN": "Skapa Mymanual Account",
-    "NEWTIMYMANUAL": "Ny till Mymanual?"
+    "NEWTIMYMANUAL": "Ny till Mymanual?",
+    "LOGINASREP": "Logga in som representant",
+    "LOGINASSP": "Logga in som tjänsteleverantör",
+    "LOGINASADDAD": "Logga in som annonsagent",
+    "LOGINASCOMP": "Logga in som företagsadministratör",
+    "LOGINASSYS": "Logga in som en systemadministratör"
   },
   "ERROR": {
     "USERNAME": "Oj, du missade användarnamnet.",

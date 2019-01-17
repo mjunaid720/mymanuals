@@ -49,7 +49,17 @@
     "ADDNOTE": "Add Note",
     "RATING": "Rating",
     "DELETE": "Delete",
-    "LINK": "Link"
+    "LINK": "Link",
+    "SERVICEPROVIDER": "Service Provider",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "COMPANY": "Company",
+    "COMMENTS": "Comments",
+    "ADDNEWCOMMENT": "Add new comment",
+    "MUSTLOGIN": "you must login to add new comment",
+    "ADDCOMMENT": "Add Comment",
+    "NOTES": "Notes"
   },
   "HEADER": {
     "LOGIN": "Consumer",
@@ -60,7 +70,8 @@
     "LOGINAS": "Login as ",
     "SP": "Service Provider",
     "AM": "Ad Manager",
-    "SYSTEMADMIN": "System Admin"
+    "SYSTEMADMIN": "System Admin",
+    "LOGOUT": "Logout"
   },
   "LOGIN": {
     "USERNAME": "Username",
@@ -69,7 +80,12 @@
     "SIGNUP": "Signup",
     "LOGIN": "Login",
     "DETAILLOGIN": "Create Mymanual Account",
-    "NEWTIMYMANUAL": "New to Mymanual?"
+    "NEWTIMYMANUAL": "New to Mymanual?",
+    "LOGINASREP": "Login as a Representative",
+    "LOGINASSP": "Login as a Service Provider",
+    "LOGINASADDAD": "Login as Ad Agent",
+    "LOGINASCOMP": "Login as a Company Admin",
+    "LOGINASSYS": "Login as a System Admin"
   },
   "ERROR": {
     "USERNAME": "Oops, you missed the UserName.",

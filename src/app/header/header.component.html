@@ -34,7 +34,7 @@
     <div *ngIf="glob.hasSession">
       <ul class="navbar-nav topmenulist">
         <li style="padding-top: 9px;">
-          Login as <b>{{glob.sessionObj.username}}</b> |
+          {{ 'HEADER.LOGINAS' | translate}} <b>{{glob.sessionObj.username}}</b> |
         </li>
         <li>
           <a class="nav-link btn btn-primary" style="cursor: pointer; max-height: 39px; color: white;" href="/home" >{{ 'HEADER.PRODUCTLISTING' | translate}}</a>

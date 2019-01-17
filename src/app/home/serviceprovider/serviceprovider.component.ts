@@ -1,5 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {TranslateService} from '@ngx-translate/core';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-serviceprovider',
@@ -10,8 +12,9 @@ export class ServiceproviderComponent implements OnInit {
 
   serviceProviders : any;
   @Input() productId : any;
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, private translate: TranslateService, private global: Globals) {
+    translate.addLangs(['en', 'se']);
+    translate.setDefaultLang(global.defaultLang);
   }
 
   ngOnInit() {
@@ -23,10 +26,8 @@ export class ServiceproviderComponent implements OnInit {
 
 
   getServiceProvider() {
-
     const data = localStorage.getItem('data');
     const prsData = JSON.parse(data);
-    console.log('dfhdhd'+this.productId);
     if (!this.isEmpty(prsData)) {
       let obs =  this.http.get('http://localhost:8080/api/consumer/product/' + this.productId + '/service-providers',
         {
@@ -49,5 +50,4 @@ export class ServiceproviderComponent implements OnInit {
     }
     return true;
   }
-
 }

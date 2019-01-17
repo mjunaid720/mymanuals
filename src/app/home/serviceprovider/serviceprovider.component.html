@@ -2,10 +2,10 @@
 <table class="table table-striped custab">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Company</th>
+    <th>{{ 'PRODUCTDETAIL.NAME' | translate}}</th>
+    <th>{{ 'PRODUCTDETAIL.EMAIL' | translate}}</th>
+    <th>{{ 'PRODUCTDETAIL.PHONE' | translate}}</th>
+    <th>{{ 'PRODUCTDETAIL.COMPANY' | translate}}</th>
   </tr>
   </thead>
   <tr *ngFor="let m of serviceProviders">
@@ -19,3 +19,9 @@
     </td>
   </tr>
 </table>
+<!--
+"NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "COMPANY": "Company",
+-->
