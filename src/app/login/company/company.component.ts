@@ -22,19 +22,23 @@ export class CompanyComponent implements OnInit {
       username : '',
       password : ''
   };
+  loader = false;
 
   clickMe() {
+      this.loader = true;
       if (this.user.username.replace(/\s/g, '') === '' && this.user.password.replace(/\s/g, '') === '') {
           this.error = 'all';
+        this.loader = false;
       } else if (this.user.username.replace(/\s/g, '') === '') {
           this.error = 'username';
+        this.loader = false;
       } else if (this.user.password.replace(/\s/g, '') === '') {
           this.error = 'password';
+        this.loader = false;
       }  else {
           this.error = '';
-          console.log(this.user);
           this.loginService.loginAsCompany(this.user).subscribe((x: {token: ''}) => {
-              console.log(x);
+            this.loader = false;
               if (x.hasOwnProperty('token')) {
                   this.error = '';
                   this.globals.hasSession = true;
@@ -45,6 +49,7 @@ export class CompanyComponent implements OnInit {
                   this.error = 'notfound';
               }
           }, (error1) => {
+            this.loader = false;
               console.log(error1);
               this.error = 'notfound';
           });

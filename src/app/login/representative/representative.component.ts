@@ -22,19 +22,25 @@ export class RepresentativeComponent implements OnInit {
         username : '',
         password : ''
     };
+    loader = false;
 
     clickMe() {
+      this.loader = true;
         if (this.user.username.replace(/\s/g, '') === '' && this.user.password.replace(/\s/g, '') === '') {
             this.error = 'all';
+          this.loader = false;
         } else if (this.user.username.replace(/\s/g, '') === '') {
             this.error = 'username';
+          this.loader = false;
         } else if (this.user.password.replace(/\s/g, '') === '') {
             this.error = 'password';
+          this.loader = false;
         }  else {
             this.error = '';
 
             const obs = this.loginService.loginAsRep(this.user);
             obs.subscribe((x: {token: ''}) => {
+              this.loader = false;
                 if (x.hasOwnProperty('token')) {
                     this.error = '';
                     console.log('now logged in');
@@ -46,6 +52,7 @@ export class RepresentativeComponent implements OnInit {
                     this.error = 'notfound';
                 }
             }, (error1) => {
+              this.loader = false;
                 this.error = 'notfound';
             });
         }

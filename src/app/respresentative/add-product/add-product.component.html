@@ -17,13 +17,13 @@
 
   <div class="form-group">
     <label>select category :</label>*
-    <!--<select class="form-control" id="select_categroy" [(ngModel)]="category">-->
-      <!--<option *ngFor="let p of categories" value="{{p.id}}">{{p.name}}</option>-->
-    <!--</select>-->
     <select class="form-control" id="select_categroy" [(ngModel)]="category">
-      <option value="1">Cat1</option>
-      <option value="2">cat2</option>
+      <option *ngFor="let p of categories" value="{{p.id}}">{{p.name}}</option>
     </select>
+    <!--<select class="form-control" id="select_categroy" [(ngModel)]="category">-->
+      <!--<option value="1">Cat1</option>-->
+      <!--<option value="2">cat2</option>-->
+    <!--</select>-->
   </div>
 
   <div class="form-group">
@@ -52,6 +52,7 @@
 
   <div class="form-group">
     <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+    <img *ngIf="loader"  src="./assets/loader.gif" style="max-height: 28px;max-width: 28px"/>
   </div>
 
   <br />

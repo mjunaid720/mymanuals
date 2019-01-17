@@ -30,6 +30,7 @@ export class AddProductComponent implements OnInit {
   imageToUpload: any = [];
   fileToUpload: any = [];
   primaryImage: any = {};
+  loader = false;
 
   constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {
     this.getListOfCategories();
@@ -85,25 +86,7 @@ export class AddProductComponent implements OnInit {
   }
 
   addProduct() {
-
-    console.log('now');
-    // const images =  [{
-    //     "name": this.imageToUpload[0].name,
-    //     "type": this.imageToUpload[0].type,
-    //     "data": this.imageToUpload[1]
-    // }];
-
-    // let cat = {
-    //   "id": this.category,
-    //   "name": "phones"
-    // };
-
-    // const manuals =  [{
-    //   "name": this.fileToUpload[0].name,
-    //   "type": this.fileToUpload[0].type,
-    //   "data": this.fileToUpload[1]
-    // }];
-
+    this.loader = true;
     let reqPrord = [];
     reqPrord = this.product;
 
@@ -121,24 +104,29 @@ export class AddProductComponent implements OnInit {
     delete reqPrord['pdfs'];
     if (reqPrord['categoryId'] == '') {
       this.error = 2;
+      this.loader = false;
     } else if (this.isEmpty((reqPrord['secondaryImages']))) {
       this.error = 2;
+      this.loader = false;
     } else if (this.isEmpty((reqPrord['primaryImage']))) {
       this.error = 2;
+      this.loader = false;
     } else if (reqPrord['name'] == '' || reqPrord['model'] == '') {
       this.error = 2;
+      this.loader = false;
     } else {
       const obs = this.http.post('http://localhost:8080/api/representative/product', reqPrord,{
         headers: new HttpHeaders().set('Authorization', prsData.token).set('Content-Type', 'application/json'),
       });
       obs.subscribe((x) => {
+        this.loader = false;
         this.error = 1;
-        console.log('record saved');
          this.selCategory = this.product['category'];
          scope.getProducts(scope.category);
          this.setToEmpty();
+
       }, error1 => {
-        console.log(error1);
+
       });
     }
   }
@@ -235,7 +223,7 @@ export class AddProductComponent implements OnInit {
     // const data = localStorage.getItem('data');
     // const prsData = JSON.parse(data);
     let scope = this;
-    const obs = this.http.get('http://localhost:8080/api/system-admin/categories', {
+    const obs = this.http.get('http://localhost:8080/api/public/categories', {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
     obs.subscribe((x) => {

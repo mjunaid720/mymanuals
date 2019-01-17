@@ -8,15 +8,15 @@
   <div class="row">
     <div class="col-md-8">
       <label for="select_categroy">{{ 'HOME.SELECTCATEGORY' | translate}} :</label>
-      <!--<select class="form-control" id="select_categroy"  [(ngModel)]="category" (change)="loadProdudts($event)">-->
-        <!--&lt;!&ndash;<option *ngFor="let cat of categories" [value]="cat.id">&ndash;&gt;-->
-          <!--&lt;!&ndash;{{cat.name}}&ndash;&gt;-->
-        <!--&lt;!&ndash;</option>&ndash;&gt;-->
-      <!--</select>-->
-      <select class="form-control" id="select_categroy" [(ngModel)]="category" (change)="loadProdudts($event)">
-        <option value="1">Cat1</option>
-        <option value="2">cat2</option>
+      <select class="form-control" id="select_categroy"  [(ngModel)]="category" (change)="loadProdudts($event)">
+        <option *ngFor="let cat of categories" [value]="cat.id">
+          {{cat.name}}
+        </option>
       </select>
+      <!--<select class="form-control" id="select_categroy" [(ngModel)]="category" (change)="loadProdudts($event)">-->
+        <!--<option value="1">Cat1</option>-->
+        <!--<option value="2">cat2</option>-->
+      <!--</select>-->
     </div>
     <div class="col-md-4">
       <label >{{ 'HOME.SEARCH' | translate}} :</label>
@@ -24,30 +24,60 @@
     </div>
   </div>
   <p></p>
-  <span>{{ 'HOME.PRODUCTS' | translate}} :</span>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>{{ 'HOME.NAME' | translate}}</th>
-      <th>{{ 'HOME.MODEL' | translate}}</th>
-      <th>{{ 'HOME.IMAGE' | translate}}</th>
-      <th>{{ 'HOME.MANUALINPDF' | translate}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let pro of products">
-      <td>
-        <a routerLink="/home/product/{{pro.id}}">
-        {{pro.name}}
-        </a>
-      </td>
-      <td>{{pro.model}}</td>
-      <td>
-        <span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>
-      </td>
-      <td>
-        <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>{{ 'HOME.DOWNLOAD' | translate}}</a></span></td>
-      </tr>
-    </tbody>
-  </table>
+  <!--<span>{{ 'HOME.PRODUCTS' | translate}} :</span>-->
+  <!--<table class="table table-striped">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>{{ 'HOME.NAME' | translate}}</th>-->
+      <!--<th>{{ 'HOME.MODEL' | translate}}</th>-->
+      <!--<th>{{ 'HOME.IMAGE' | translate}}</th>-->
+      <!--<th>{{ 'HOME.MANUALINPDF' | translate}}</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr *ngFor="let pro of products">-->
+      <!--<td>-->
+        <!--<a routerLink="/home/product/{{pro.id}}">-->
+        <!--{{pro.name}}-->
+        <!--</a>-->
+      <!--</td>-->
+      <!--<td>{{pro.model}}</td>-->
+      <!--<td>-->
+        <!--<span *ngIf="pro.primaryImage.url != ''"><img class="img-thumbnail img-small" width="100" height="100" alt="200x200" src="{{pro.primaryImage.url}}" data-holder-rendered="true"></span>-->
+      <!--</td>-->
+      <!--<td>-->
+        <!--<span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>{{ 'HOME.DOWNLOAD' | translate}}</a></span></td>-->
+      <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row" style="margin-top: 20px" *ngFor="let pro of products">
+        <div class="col-md-12 post">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>
+                <strong><a routerLink="/home/product/{{pro.id}}" class="post-title">{{pro.name}}</a></strong></h4>
+            </div>
+          </div>
+          <hr />
+          <div class="row post-content">
+            <div class="col-md-3">
+              <a routerLink="/home/product/{{pro.id}}" *ngIf="pro.primaryImage.url != ''">
+                <img style="max-width: 257px; max-height: 257px;" src="{{pro.primaryImage.url}}" alt="" class="img-responsive">
+              </a>
+            </div>
+            <div class="col-md-9">
+                {{ 'HOME.MODEL' | translate}}: {{pro.model}} <br />
+                <span *ngIf="pro.manuals.length > 0"><a style="cursor: pointer"  href="{{pro.manuals[0].url}}" download>{{ 'HOME.DOWNLOAD' | translate}}</a></span>
+              <p>
+                <a class="btn btn-read-more" routerLink="/home/product/{{pro.id}}">View Detail</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

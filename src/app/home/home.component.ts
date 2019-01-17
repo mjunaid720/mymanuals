@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadCategories(){
-    let obs =  this.http.get('http://localhost:8080/api/system-admin/categories');
+    let obs =  this.http.get('http://localhost:8080/api/public/categories');
     obs.subscribe((x)=> {
       console.log(x);
       this.categories = x;
