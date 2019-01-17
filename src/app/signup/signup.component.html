@@ -18,7 +18,7 @@
           <!-- form card login -->
           <div class="card rounded-0">
             <div class="card-header">
-              <h3 class="mb-0">Signup</h3>
+              <h3 class="mb-0">Consumer Signup</h3>
             </div>
             <div class="card-body">
               <div class="form-group">
@@ -49,7 +49,7 @@
 
               <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)='clickme()'>Signup</button>
 
-              <div style="color: red" *ngIf="message == 'success'" [className]="message == 'success' ? 'sucMsg' : 'hide'">Congratulation! you are signed up successfully</div>
+              <div style="color: red" *ngIf="message == 'success'" [className]="message == 'success' ? 'sucMsg' : 'hide'">Congratulation! you are signed up successfully <a href="/login/consumer" style="text-decoration: underline">Login here</a> </div>
               <div style="color: red" *ngIf="message == 'error'" [className]="message == 'error' ? 'show' : 'hide'">Please fill all fields</div>
             </div>
             <!--/card-block-->

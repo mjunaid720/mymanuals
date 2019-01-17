@@ -11,7 +11,7 @@
 <br />
 <div class="card rounded-0">
   <div class="card-header">
-    <h3 class="mb-0 col-md-8" style="float: left;"> {{ 'LOGIN.LOGINASACONSUMER' | translate }}</h3>
+    <h3 class="mb-0" style="float: left;"> {{ 'LOGIN.LOGINASACONSUMER' | translate }}</h3>
   </div>
   <div class="card-body">
 <div class="form-group">
@@ -38,7 +38,7 @@
     <img *ngIf="loader"  src="./assets/loader.gif" style="max-height: 28px;max-width: 28px"/>
   </div>
   <hr />
-  <p>New to Mymanual?</p>
+  <span class="text-center"><p>{{ 'LOGIN.NEWTIMYMANUAL' | translate }}</p></span>
   <span class="text-center"><h3 (click)="movetosignup()" class="btn btn-primary col-md-6">{{ 'LOGIN.DETAILLOGIN' | translate }}</h3></span>
 </div>
 </div>

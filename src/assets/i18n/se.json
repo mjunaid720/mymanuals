@@ -68,7 +68,8 @@
     "LOGINASACONSUMER": "Logga in som konsument",
     "SIGNUP": "Bli Medlem",
     "LOGIN": "Logga in",
-    "DETAILLOGIN": "Skapa Mymanual Account"
+    "DETAILLOGIN": "Skapa Mymanual Account",
+    "NEWTIMYMANUAL": "Ny till Mymanual?"
   },
   "ERROR": {
     "USERNAME": "Oj, du missade användarnamnet.",

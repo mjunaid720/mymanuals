@@ -38,7 +38,7 @@ export class ServiceproviderComponent implements OnInit {
        // console.log(x);
       });
     } else {
-      confirm('Please login first.');
+      // confirm('Please login first.');
     }
   }
 

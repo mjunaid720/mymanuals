@@ -13,22 +13,31 @@ export class SignupComponent implements OnInit {
         password : '',
       email: ''
     };
-    message : String = '';
+    message: String = '';
 
-  constructor( private  http: HttpClient) { }
+    constructor( private  http: HttpClient) { }
+
     clickme() {
-        if(this.user.name == '' || this.user.username == '' || this.user.password == '' || this.user.email == ''){
+        if(this.user.name == '' || this.user.username == '' || this.user.password == '' || this.user.email == '') {
             this.message = 'error';
-            console.log('i am in error');
         } else {
             let obs = this.http.post('http://localhost:8080/api/consumer/signup', this.user);
             obs.subscribe((x) => {
-                console.log(x);
                 this.message = 'success';
+                this.setToEmpty();
             });
         }
     }
-  ngOnInit() {
-  }
 
+    setToEmpty() {
+      this.user = {
+        name : '',
+        username : '',
+        password : '',
+        email: ''
+      };
+    }
+
+    ngOnInit() {
+    }
 }

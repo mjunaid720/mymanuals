@@ -68,7 +68,8 @@
     "LOGINASACONSUMER": "Login as a Consumer",
     "SIGNUP": "Signup",
     "LOGIN": "Login",
-    "DETAILLOGIN": "Create Mymanual Account"
+    "DETAILLOGIN": "Create Mymanual Account",
+    "NEWTIMYMANUAL": "New to Mymanual?"
   },
   "ERROR": {
     "USERNAME": "Oops, you missed the UserName.",
